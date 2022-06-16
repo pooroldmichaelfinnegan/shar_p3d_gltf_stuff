@@ -1,16 +1,20 @@
 
-import json
+import json, sys
 
 # local imports
 from chunks import *
 from list_of_chunk_ids import chunk_id_list  # for hacky chunk counter
 
+# I = sys.argv[1]
+# O = sys.argv[2]
+
 # with open('./p3ds/flandersHouse.p3d', 'rb') as file:  # modified p3ds to test on
 # with open('./p3ds/l4/loadZones.p3d', 'rb') as file:   # 
 # with open('./p3ds/l4/sr1_.p3d', 'rb') as file:        # 
 
-# with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
-with open('./p3ds/l1z1.p3d', 'rb') as file:
+with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
+# with open('./p3ds/l1z1.p3d', 'rb') as file:
+# with open(I, 'rb') as file:
     p3d_file = file.read()
 
 counter = {}
@@ -45,6 +49,7 @@ def _next(block):
         # else: name = chunk_id_list[chunk_id]
     else:
         name = CHUNKS[chunk_id].__name__
+        print(name, chunk_id, data_size, chunk_size)
         chunk_data = CHUNKS[chunk_id](block[header:data_size])
 
         # print(name)
@@ -59,12 +64,14 @@ def _next(block):
         return { name: chunk_data }
     else: return name
 
+# I2 = I[:-4] + '.json'
+
 
 if __name__ == '__main__':
     ret = _next(p3d_file)
     # print(ret)
-    with open('./dump.json', 'wt') as dump:
-        json.dump(ret, dump, indent=2)
+    # with open(I2, 'wt') as dump:
+    #     json.dump(ret, dump, indent=2)
     # for i in counter:
     #     if i in chunk_id_list: print(counter[i], chunk_id_list[i])
     #     else: print(counter[i], i)

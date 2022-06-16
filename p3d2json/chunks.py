@@ -1,7 +1,7 @@
 import struct
 
 # local imports
-from enums import _locator_types, _event_types, _trigger_volume_types
+from enums import _locator_types, _event_types, _trigger_volume_types, _terrain_types
 
 # root
 def P3D(block): return {}
@@ -38,9 +38,9 @@ def BSphere(block):
 def TerrainType(block):
     _version, = struct.unpack('<I', block[:0x4])
     _num_types, = struct.unpack('<I', block[0x4:0x8])
-    _types = struct.unpack(f'{_num_types}B', block[0x8:0x8+_num_types])
+    _types = [_terrain_types[i] for i in struct.unpack(f'{_num_types}B', block[0x8:0x8+_num_types])]
     return { 'Version': _version, 'Types': _types }
-CHUNKS = { **CHUNKS, **{ b'\x03\x00\xF0\x03': IntersectDSG, b'\x03\x00\x01\x00': BBox, b'\x04\x00\x01\x00': BSphere, b'\x0E\x00\x00\x03': TerrainType }}
+# CHUNKS = { **CHUNKS, **{ b'\x03\x00\xF0\x03': IntersectDSG, b'\x03\x00\x01\x00': BBox, b'\x04\x00\x01\x00': BSphere, b'\x0E\x00\x00\x03': TerrainType }}
 
 
 def TreeDSG(block):
@@ -58,7 +58,7 @@ def SpatialNode(block):
 
 
 # locators
-def WBLocator(block):
+def WBLocator(block): # add more cases
     _name_size = block[0]
     _name = struct.unpack(f'{_name_size}s', block[0x1:0x1+_name_size])[0].decode('ascii').strip('\x00')
     _type = _locator_types[struct.unpack(f'I', block[_name_size+0x1:_name_size+0x5])[0]]
@@ -82,7 +82,7 @@ def WBTriggerVolume(block):
 # CHUNKS = { **CHUNKS, **{ b'\x05\x00\x00\x03': WBLocator, b'\x06\x00\x00\x03': WBTriggerVolume }}
 
 
-# textures & images  # todo
+# TEXTURE
 # def Texture(block): return {}
 # def Image(block): return {}
 # def ImageData(block):
@@ -141,3 +141,109 @@ def CollisionVector(block):
     _x, _y, _z = struct.unpack('3f', block[:0xC])
     return { 'X': _x, 'Y': _y, 'Z': _z }
 # CHUNKS = { **CHUNKS, **{ b'\x01\x00\xF0\x03': StaticPhysDSG, b'\x00\x00\x01\x07': CollisionObject, b'\x23\x00\x01\x07': CollisionObjectAttribute, b'\x21\x00\x01\x07': CollisionVolumeOwner, b'\x22\x00\x01\x07': CollisionVolumeOwnerName, b'\x20\x00\x01\x07': SelfCollision, b'\x01\x00\x01\x07': CollisionVolume, b'\x06\x00\x01\x07': BBoxVolume, b'\x02\x00\x01\x07': SphereVolume, b'\x03\x00\x01\x07': CylinderVolume, b'\x04\x00\x01\x07': OBBoxVolume, b'\x05\x00\x01\x07': WallVolume, b'\x07\x00\x01\x07': CollisionVector }}
+
+
+# world sphere
+def WorldSphereDSG(block):
+    _version, = struct.unpack('I', block[:0x4])
+    _num_meshes, = struct.unpack('I', block[0x4:0x8])
+    _num_bill_board_quads, = struct.unpack('I', block[0x8:0xC])
+    return { 'Version': _version, 'NumMeshes': _num_meshes, 'NumBillBoardQuads': _num_bill_board_quads }
+def MultiController(block): 
+    
+    return {  }
+def FrameController(block): 
+    
+    return {  }
+def Skeleton(block): 
+    
+    return {  }
+def Animation(block): 
+    
+    return {  }
+def CompositeDrawable(block): 
+    
+    return {  }
+def BillboardQuadGroup(block): 
+    
+    return {  }
+def LensFlareDSG(block): 
+    
+    return {  }
+def RenderStatus(block):
+    _cast_shadow, = struct.unpack('I', block[:0x4])
+    return { 'CastShadow': _cast_shadow }
+# CHUNKS = { **CHUNKS, **{ b'\x01\x00\xF0\x03': WorldSphereDSG }}
+
+
+# MESH
+def Mesh(block):
+    ''' subchunks
+            PrimGroup
+            BBox
+            BSphere
+            RenderStatus
+            ExpressionOffsets '''
+    _name_size = block[0]
+    _name = struct.unpack(f'{_name_size}s', block[0x1:0x1+_name_size])[0].decode('ascii').strip('\x00')
+    _version, = struct.unpack('I', block[0x1+_name_size:0x1+_name_size+0x4])
+    _num_prime_groups, = struct.unpack('I', block[0x1+_name_size+0x4:0x1+_name_size+0x4+0x4])
+    return { 'Name': _name, 'Version': _version, 'NumPrimGroups': _num_prime_groups }
+
+def PrimeGroup(block): return {}
+
+
+CHUNKS = {
+    b'\x50\x33\x44\xFF': P3D,
+
+    # b'\x07\x00\xF0\x03': FenceDSG,
+    # b'\x00\x00\x00\x03': Wall,
+
+    # b'\x03\x00\xF0\x03': IntersectDSG,
+    b'\x03\x00\x01\x00': BBox,
+    b'\x04\x00\x01\x00': BSphere,
+    # b'\x0E\x00\x00\x03': TerrainType,
+
+    # b'\x04\x00\xF0\x03': TreeDSG,
+    # b'\x05\x00\xF0\x03': ContiguousBinNode,
+    # b'\x06\x00\xF0\x03': SpatialNode,
+
+    # b'\x05\x00\x00\x03': WBLocator,
+    # b'\x06\x00\x00\x03': WBTriggerVolume,
+
+    # b'\x00\x90\x01\x00': Texture,
+    # b'\x01\x90\x01\x00': Image,
+    # b'\x02\x90\x01\x00': ImageData,
+    # b'\x03\x90\x01\x00': ImageFileName,
+    # b'\x04\x90\x01\x00': VolumeImage,
+    # b'\x05\x90\x01\x00': Sprite,
+
+    # b'\x01\x00\xF0\x03': StaticPhysDSG,
+    # b'\x00\x00\x01\x07': CollisionObject,
+    # b'\x23\x00\x01\x07': CollisionObjectAttribute,
+    # b'\x21\x00\x01\x07': CollisionVolumeOwner,
+    # b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
+    # b'\x20\x00\x01\x07': SelfCollision,
+    # b'\x01\x00\x01\x07': CollisionVolume,
+    # b'\x06\x00\x01\x07': BBoxVolume,
+    # b'\x02\x00\x01\x07': SphereVolume,
+    # b'\x03\x00\x01\x07': CylinderVolume,
+    # b'\x04\x00\x01\x07': OBBoxVolume,
+    # b'\x05\x00\x01\x07': WallVolume,
+    # b'\x07\x00\x01\x07': CollisionVector,
+
+    b'\x0B\x00\xF0\x03': WorldSphereDSG,
+    b'\x00\x00\x01\x00': Mesh,
+
+    b'\x02\x00\x01\x00': PrimeGroup,
+
+}
+
+
+
+
+
+
+
+
+
