@@ -1,0 +1,34 @@
+{
+    "scene": 0,
+    "scenes": [{ "nodes": [ 0 ] }],
+    "nodes": [{ "mesh": 0 }],
+    "meshes": [{
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "mode": 1
+        }]
+    }],
+    "accessors": [{
+        "bufferView": 0,
+        "byteOffset": 0,
+        "componentType": 5126,
+        "count": 2472,
+        "type": "VEC3",
+        "max": [ 511.3038024902344, 0.0, 717.587646484375 ],
+        "min": [ -438.6488952636719, 0.0, -641.3572387695312 ]
+    }],
+    "bufferViews": [{
+        "buffer": 0,
+        "byteOffset" : 0,
+        "byteStride": 12,
+        "byteLength" : 29664,
+        "target" : 34962
+    }],
+    "buffers": [{
+        "uri": "./L1_l_se_opposite_z.bin",
+        "byteLength": 29664
+    }],
+    "asset": { "version" : "2.0" }
+  }

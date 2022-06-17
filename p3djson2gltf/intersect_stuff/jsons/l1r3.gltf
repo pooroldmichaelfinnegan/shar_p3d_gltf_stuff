@@ -1,0 +1,83 @@
+{
+  "asset": {
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0
+          },
+          "indices": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 12790,
+      "max": [
+        -55.4619140625,
+        14.402427673339844,
+        474.2588195800781
+      ],
+      "min": [
+        -325.951904296875,
+        -12.221959114074707,
+        148.72360229492188
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "type": "SCALAR",
+      "count": 22722,
+      "max": [
+        12789
+      ],
+      "min": [
+        0
+      ]
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 153480,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 153480,
+      "byteLength": 90888,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "l1r3.bin",
+      "byteLength": 244368
+    }
+  ]
+}

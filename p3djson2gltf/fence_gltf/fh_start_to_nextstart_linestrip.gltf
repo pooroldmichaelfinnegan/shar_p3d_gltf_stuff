@@ -1,0 +1,34 @@
+{
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "nodes": [{ "mesh": 0 }],
+    "meshes": [{
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "mode": 3
+        }]
+    }],
+    "accessors": [{
+        "bufferView": 0,
+        "byteOffset" : 0,
+        "componentType" : 5126,
+        "count" : 23 ,
+        "type" : "VEC3",
+        "max" : [ 579.6381225585938, 0.0, -180.91299438476562 ],
+        "min" : [ 549.769775390625, 0.0, -198.33529663085938 ]
+
+    }],
+    "bufferViews": [{
+        "buffer": 0,
+        "byteOffset" : 0,
+        "byteLength" : 276,
+        "target" : 34962
+    }],
+    "buffers": [{
+        "uri": "./flandersHouse.bin",
+        "byteLength": 276
+    }],
+    "asset": { "version" : "2.0" }
+  }

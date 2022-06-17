@@ -1,0 +1,105 @@
+{
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0, 1
+      ]
+    }
+  ],
+  "nodes": [{
+    "mesh": 0,
+    "scale": [
+      2.0565943717956543,
+      0.5,
+      18.054182052612305
+    ],
+    "translation": [
+      187.0124969482422,
+      7.192666530609131,
+      331.94635009765625
+    ],
+    "rotation": [
+      0.5842088460922241,
+      0.19490963220596313,
+      -0.01986214891076088,
+      1
+    ]
+  },{
+    "mesh": 0,
+    "scale": [
+      2.3899290561676025,
+      0.3463898301124573,
+      6.782758712768555
+    ],
+    "translation": [
+      186.8382110595703,
+      5.82756233215332,
+      328.1568298339844
+    ],
+    "rotation": [
+      0.6138455867767334,
+      0.6135703325271606,
+      0.9995259642601013,
+      1.0
+    ]
+  }],
+  "meshes": [
+    {
+      "name": "cube.default",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0
+          },
+          "indices": 1
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 24,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5123,
+      "count": 36,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 288
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 288,
+      "byteLength": 72
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "./cube.default.bin",
+      "byteLength": 360
+    }
+  ],
+  "asset": {
+    "version": "2.0"
+  }
+}

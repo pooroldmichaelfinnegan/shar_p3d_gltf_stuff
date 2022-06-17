@@ -1,0 +1,45 @@
+{
+    "scene": 0,
+    "scenes": [{
+        "nodes": [ 0 ]
+    }],
+    "nodes": [{
+        "mesh": 0
+    }],
+    "meshes": [{
+        "name" : "intersect",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "indices": 1
+        }]
+    }],
+    "accessors": [{
+        "bufferView": 0,
+        "componentType": 5126,
+        "type": "VEC3",
+        "count": 12,
+        "max": [ 220, 6.164588928222656, -104.88796997070312 ],
+        "min": [ 212.95980834960938, 4.488999366760254, -120 ]
+    },{
+        "bufferView" : 1,
+        "componentType" : 5125,
+        "count" : 18,
+        "type" : "SCALAR"
+    }],
+    "bufferViews": [{
+        "buffer": 0,
+        "byteOffset": 0,
+        "byteLength": 144
+    },{
+        "buffer": 0,
+        "byteOffset": 144,
+        "byteLength": 72
+    }],
+    "buffers": [{
+       "uri": "./intersect1.bin",
+       "byteLength": 216
+    }],
+    "asset": { "version" : "2.0" }
+}
