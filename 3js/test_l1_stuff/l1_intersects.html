@@ -44,7 +44,7 @@
 			// import Stats from './jsm/libs/stats.module.js';
 
 			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
+			// import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
 
 			import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
 			// import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
@@ -67,7 +67,7 @@
 
 			const scene = new THREE.Scene();
 			scene.background = new THREE.Color( 0x101010 );
-			scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
+			// scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
 			const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 100 );
 			camera.position.set( 5, 2, 8 );
@@ -95,13 +95,13 @@
                 //     }
                 // });
 				scene.add( fences );
-				animate();
+				// animate();
 			}, undefined, function ( e ) { console.error( e ); } );
 
 			loader.load( 'l1_intersects_single_file_exported_from_blender.gltf', function ( gltf ) {
 			// loader.load( 'l1z1_obbox_all.gltf', function ( gltf ) {
 				const model = gltf.scene;
-                console.log({ model })
+                // console.log({ model })
                 // console.log({ model.up })
                 model.up.set( 0, -1, 0)
 				model.position.set( 1, 1, 0 );
@@ -131,6 +131,11 @@
 
 			};
 
+
+            const light = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
+            console.log({ light })
+            light.intensity = 100
+            scene.add( light );
 
 			function animate() {
 
