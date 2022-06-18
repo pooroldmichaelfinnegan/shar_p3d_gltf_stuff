@@ -1,0 +1,20 @@
+to convert face normal (which the p3d defines) to vertex normals (to use in gltf model)
+
+first gonna improve the p3djson parser, make more objectoriented idk
+then triple the face normal vectors
+
+the intersect triangle primitives use degerate verticies (using same vertex more than once per primitive)
+i fail to remember why this is potentially problematic
+
+wondering if dumping all vectors into .bin and then sorting out all primitives by terain type into seperate views
+
+l1_int_types.bin buffer offsets
+
+Road    239304   0x3a6c8
+Grass   194556   0x2f7fc
+Sand       660     0x294
+Gravel       0       0x0
+Water        0       0x0
+Wood         0       0x0
+Metal        0       0x0
+Dirt     79704   0x13758

@@ -1,0 +1,100 @@
+{
+    "asset": { "version": "2.0"},
+    "scene": 0,
+    "scenes": [{
+        "nodes": [ 0, 1, 2, 3 ]
+    }],
+    "nodes": [{
+        "mesh": 0
+    }, {
+        "mesh": 1
+    }, {
+        "mesh": 2
+    }, {
+        "mesh": 3
+    }],
+    "materials": [{
+
+    }],
+    "meshes": [{
+        "name": "Road",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "mode": 4
+        }]
+    }, {
+        "name": "Grass",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 1
+            },
+            "mode": 4
+        }]
+    }, {
+        "name": "Sand",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 2
+            },
+            "mode": 4
+        }]
+    }, {
+        "name": "Dirt",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 3
+            },
+            "mode": 4
+        }]
+    }],
+    "accessors": [{
+        "name": "Road",
+        "bufferView": 0,
+        "byteOffset": 0,
+        "componentType": 5126,
+        "count": 19942,
+        "type": "VEC3",
+        "max": [ 441.1381530761719, 12.771402359008789, 512.001953125 ],
+        "min": [ -145.94859313964844, -2.279221534729004, -684.5712890625 ]
+    }, {
+        "name": "Grass",
+        "bufferView": 0,
+        "byteOffset": 239304,
+        "componentType": 5126,
+        "count": 16213,
+        "type": "VEC3",
+        "max": [ 0.0, 0.0, 0.0 ],
+        "min": [ 0.0, 0.0, 0.0 ]
+    }, {
+        "name": "Sand",
+        "bufferView": 0,
+        "byteOffset": 433860,
+        "componentType": 5126,
+        "count": 55,
+        "type": "VEC3",
+        "max": [ 0.0, 0.0, 0.0 ],
+        "min": [ 0.0, 0.0, 0.0 ]
+    }, {
+        "name": "Dirt",
+        "bufferView": 0,
+        "byteOffset": 434520,
+        "componentType": 5126,
+        "count": 6642,
+        "type": "VEC3",
+        "max": [ 591.42431640625, 591.4243774414062, 591.4243774414062 ],
+        "min": [ -640, -642.2210693359375, -642.2210693359375 ]
+    }],
+    "bufferViews": [{
+        "name": "L1_Intersects",
+        "buffer": 0,
+        "byteLength": 514224,
+        "byteOffset": 0,
+        "target": 34962
+    }],
+    "buffers": [{
+        "uri": "l1_int_types.bin",
+        "byteLength": 514224
+    }]
+}
