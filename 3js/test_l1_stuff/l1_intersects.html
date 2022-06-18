@@ -66,7 +66,7 @@
 			const pmremGenerator = new THREE.PMREMGenerator( renderer );
 
 			const scene = new THREE.Scene();
-			scene.background = new THREE.Color( 0x88888888 );
+			scene.background = new THREE.Color( 0x101010 );
 			scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
 			const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 100 );
@@ -83,10 +83,27 @@
 
 			const loader = new GLTFLoader();
 			// loader.setDRACOLoader( dracoLoader );
+            loader.load( 'l1_fences_.gltf', function ( gltf ) {
+				const fences = gltf.scene;
+				fences.position.set( 1, 1, 0 );
+				fences.scale.set( 0.01, 0.01, 0.01 );
+                console.log({fences})
+                // model.traverse( function( node ) {
+                //     console.log({node})
+                //     if( node.material ) {
+                //         node.material.side = THREE.DoubleSide;
+                //     }
+                // });
+				scene.add( fences );
+				animate();
+			}, undefined, function ( e ) { console.error( e ); } );
+
 			loader.load( 'l1_intersects_single_file_exported_from_blender.gltf', function ( gltf ) {
 			// loader.load( 'l1z1_obbox_all.gltf', function ( gltf ) {
-
 				const model = gltf.scene;
+                console.log({ model })
+                // console.log({ model.up })
+                model.up.set( 0, -1, 0)
 				model.position.set( 1, 1, 0 );
 				model.scale.set( 0.01, 0.01, 0.01 );
                 model.traverse( function( node ) {
@@ -102,11 +119,7 @@
 
 				animate();
 
-			}, undefined, function ( e ) {
-
-				console.error( e );
-
-			} );
+			}, undefined, function ( e ) { console.error( e ); } );
 
 
 			window.onresize = function () {
