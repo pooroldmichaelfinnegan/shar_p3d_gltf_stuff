@@ -45,6 +45,7 @@ class CV(Chunk):
             match child_name:
                 case 'CollisionVolume': CV(i['CollisionVolume'])
                 case 'OBBoxVolume': OBBox(i['OBBoxVolume'])
+                case 'CylinderVolume': OBBox(i['CylinderVolume'])
                 case _: pass
             
 
@@ -68,6 +69,14 @@ class OBBox(Chunk):
             'translation': self.transform,
             'rotation': self.rotation
         }
+
+
+class Cylinder(Chunk):
+    def __init__(self, chunk_body: list):
+        Chunk.__init__(self, chunk_body)
+        self.length = Vec3f(self.data).xyz
+        self.transform = Vec3f(self.child[0]['CollisionVector']).xyoz
+        self.rotation = Vec3f(self.child[0]['CollisionVector']).xyz
 
 
 class Vec3f(Chunk):

@@ -10,7 +10,8 @@
     "nodes": [
       {
         "mesh": 1
-      },{
+      },
+      {
         "mesh": 0,
         "scale": [
           4.597658157348633,
@@ -1297,7 +1298,8 @@
             "mode": 4
           }
         ]
-      },{
+      },
+      {
         "primitives": [{
             "attributes": {
                 "POSITION": 2
@@ -1320,7 +1322,8 @@
         "componentType": 5123,
         "count": 36,
         "type": "SCALAR"
-      },{
+      },
+      {
         "bufferView": 2,
         "byteOffset": 0,
         "componentType": 5126,
@@ -1340,7 +1343,8 @@
         "buffer": 0,
         "byteOffset": 288,
         "byteLength": 72
-      },{
+      },
+      {
         "buffer": 1,
         "byteOffset" : 0,
         "byteStride": 12,
@@ -1352,7 +1356,8 @@
       {
         "uri": "./cube.default.bin",
         "byteLength": 360
-      },{
+      },
+      {
         "uri": "../L1_l_se_opposite_z.bin",
         "byteLength": 29664
     }
