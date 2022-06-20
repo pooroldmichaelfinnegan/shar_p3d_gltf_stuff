@@ -1,22 +1,24 @@
 
 class Chunk:
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         self.chunk_body = chunk_body
+        self.data  = chunk_body[0]
+        self.child = chunk_body[1]
 
-        if isinstance(chunk_body, dict):
-            self.data  = chunk_body
-        elif isinstance(chunk_body, list):
-            if len(chunk_body) == 1:
-                self.child = chunk_body[0]
-            elif len(chunk_body) == 2:
-                self.data  = chunk_body[0]
-                self.child = chunk_body[1]
-            else: raise 'ERROR chunk body invalid type'
-
+        ## for when data and children sections were filtered out if empty
+        # if isinstance(chunk_body, dict):
+        #     self.data  = chunk_body
+        # elif isinstance(chunk_body, list):
+        #     if len(chunk_body) == 1:
+        #         self.child = chunk_body[0]
+        #     elif len(chunk_body) == 2:
+        #         self.data  = chunk_body[0]
+        #         self.child = chunk_body[1]
+        #     else: raise 'ERROR chunk body invalid type'
 
 
 class StaticPhysDSG(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
 
         for i in self.child:
@@ -28,7 +30,7 @@ class StaticPhysDSG(Chunk):
 
 
 class CollisionObject(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
 
         for i in self.child:
@@ -40,7 +42,7 @@ class CollisionObject(Chunk):
 
 
 class CollisionVolume(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
 
         for i in self.child:
@@ -53,7 +55,7 @@ class CollisionVolume(Chunk):
             
 
 class OBBox(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.length = self.scale = Vec3f(self.data).xyz
         self.transform = Vec3f(self.child[0]['CollisionVector']).xyoz
@@ -73,7 +75,7 @@ class OBBox(Chunk):
 
 
 class Cylinder(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.postition = self.transform = Vec3f(self.child[0]['CollisionVector']).xyoz
         self.rotation = Vec3f(self.child[0]['CollisionVector']).xyz
@@ -81,32 +83,42 @@ class Cylinder(Chunk):
 
 
 class Intersect(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
-        self.indices3     = self.data['Indices']
-        self.positions3   = self.data['Positions']
-        self.facenormals3 = self.data['Normals']
-        self.indices      = [ i for j in self.indices3 for i in j ]
-        self.positions    = [ i for j in self.positions3 for i in j ]
-        self.facenormals  = [ i for j in self.facenormals3 for i in j ]
+        self.indices3      = self.data['Indices']
+        self.positions3    = self.data['Positions']
+        self.facenormals3  = self.data['Normals']
+        self.indices       = [ i for j in self.indices3 for i in j ]
+        self.positions     = [ i for j in self.positions3 for i in j ]
+        self.facenormals   = [ i for j in self.facenormals3 for i in j ]
 
         self.indices_max,     self.indices_min     = calc_maxmin(*self.indices3)
         self.positions_max,   self.positions_min   = calc_maxmin(*self.positions3)
         self.facenormals_max, self.facenormals_min = calc_maxmin(*self.facenormals3)
 
+        ## oppisite z co-ord
+        self.positions3_oz = [[ x, y, z*-1.0 ] for x, y, z in self.positions3 ]
+        self.positions_oz  = [ i for j in self.positions3 for i in j ]
+        self.positions_oz_max, self.positions_oz_min = calc_maxmin(*self.positions3_oz)
 
-        if 'TerrainType' in list(self.child[0]):
-            self.types = self.child[0]['TerrainType']['Types']
-            self.bsphere = BSphere(self.child[1]['BSphere'])
-            self.box = BBox((self.child[2]['BBox']))
-        else:
-            self.types = b''
-            self.bsphere = BSphere(self.child[0]['BSphere'])
-            self.box = BBox((self.child[1]['BBox']))
+
+        ## temp hack
+        if not self.child: self.types = [ 'TT_Road' for _ in self.indices3 ]
+        else: self.types = self.child[0]['TerrainType'][0]['Types']
+
+        ## need to update, changed from list[int] to list[str]
+        # if 'TerrainType' in list(self.child[0]):
+        #     self.types = self.child[0]['TerrainType']['Types']
+        #     self.bsphere = BSphere(self.child[1]['BSphere'])
+        #     self.box = BBox((self.child[2]['BBox']))
+        # else:
+        #     self.types = [ 0 for _ in self.indices3]
+        #     self.bsphere = BSphere(self.child[0]['BSphere'])
+        #     self.box = BBox((sel`f.child[1]['BBox']))
         
 
 class BSphere(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.sphere = self.data['Sphere']
 
@@ -115,7 +127,7 @@ class BSphere(Chunk):
 
 
 class BBox(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.box = self.data['Box']
 
@@ -126,7 +138,7 @@ class BBox(Chunk):
 
 
 class Vec3f(Chunk):
-    def __init__(self, chunk_body: list):
+    def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.items = list(self.data.items())
         self.xyz  = [self.items[0][1], self.items[1][1], self.items[2][1]]
@@ -144,7 +156,7 @@ class Matrix4(Chunk):
         self.lazy = [self.X[0]*-1.0, self.Y[1]*-1.0, self.Z[2]*-1.0, self.W[3]]
 
 
-def calc_maxmin(*args: list[float]):
+def calc_maxmin(*args: list[float, float, float]):
     _max = list(map(max, zip(*args)))
     _min = list(map(min, zip(*args)))
     return _max, _min

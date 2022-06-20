@@ -14,7 +14,7 @@
         "mesh": 3
     }],
     "materials": [{
-
+        "doubleSided": true
     }],
     "meshes": [{
         "name": "Road",
@@ -22,6 +22,7 @@
             "attributes": {
                 "POSITION": 0
             },
+            "material": 0,
             "mode": 4
         }]
     }, {
@@ -30,6 +31,7 @@
             "attributes": {
                 "POSITION": 1
             },
+            "material": 0,
             "mode": 4
         }]
     }, {
@@ -38,6 +40,7 @@
             "attributes": {
                 "POSITION": 2
             },
+            "material": 0,
             "mode": 4
         }]
     }, {
@@ -46,6 +49,7 @@
             "attributes": {
                 "POSITION": 3
             },
+            "material": 0,
             "mode": 4
         }]
     }],
@@ -54,47 +58,48 @@
         "bufferView": 0,
         "byteOffset": 0,
         "componentType": 5126,
-        "count": 19942,
+        "count": 59826,
         "type": "VEC3",
-        "max": [ 441.1381530761719, 12.771402359008789, 512.001953125 ],
-        "min": [ -145.94859313964844, -2.279221534729004, -684.5712890625 ]
+        "max": [ 441.1381530761719, 14.402427673339844, 583.4244384765625 ],
+        "min": [ -324.2649230957031, -12.221959114074707, -684.5712890625 ]
     }, {
         "name": "Grass",
         "bufferView": 0,
-        "byteOffset": 239304,
+        "byteOffset": 717912,
         "componentType": 5126,
-        "count": 16213,
+        "count": 48639,
         "type": "VEC3",
-        "max": [ 0.0, 0.0, 0.0 ],
-        "min": [ 0.0, 0.0, 0.0 ]
+        "max": [ 498.51605224609375, 16.397510528564453, 600.2676391601562 ],
+        "min": [ -325.951904296875, -12.221959114074707, -721.3488159179688 ]
     }, {
         "name": "Sand",
         "bufferView": 0,
-        "byteOffset": 433860,
+        "byteOffset": 1301580,
         "componentType": 5126,
-        "count": 55,
+        "count": 165,
         "type": "VEC3",
-        "max": [ 0.0, 0.0, 0.0 ],
-        "min": [ 0.0, 0.0, 0.0 ]
+        "max": [ -77.0770263671875, 3.5168445110321045, -597.2770385742188 ],
+        "min": [ -96.10663604736328, 3.0669946670532227, -623.8308715820312 ]
     }, {
         "name": "Dirt",
         "bufferView": 0,
-        "byteOffset": 434520,
+        "byteOffset": 1303560,
         "componentType": 5126,
-        "count": 6642,
+        "count": 19926,
         "type": "VEC3",
-        "max": [ 591.42431640625, 591.4243774414062, 591.4243774414062 ],
-        "min": [ -640, -642.2210693359375, -642.2210693359375 ]
+        "max": [ 466.0846862792969, 14.948687553405762, 591.425048828125 ],
+        "min": [ -157.49191284179688, -16.677459716796875, -642.2210693359375 ]
     }],
     "bufferViews": [{
         "name": "L1_Intersects",
         "buffer": 0,
-        "byteLength": 514224,
+        "byteLength": 1542672,
         "byteOffset": 0,
+        "byteStride": 12,
         "target": 34962
     }],
     "buffers": [{
         "uri": "l1_int_types.bin",
-        "byteLength": 514224
+        "byteLength": 1542672
     }]
 }

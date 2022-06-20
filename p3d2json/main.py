@@ -7,13 +7,13 @@ from list_of_chunk_ids import chunk_id_list  # for hacky chunk counter
 
 # I = sys.argv[1]
 # O = sys.argv[2]
-
+# region = 'z7'
 # with open('./p3ds/flandersHouse.p3d', 'rb') as file:  # modified p3ds to test on
 # with open('./p3ds/l4/loadZones.p3d', 'rb') as file:   # 
 # with open('./p3ds/l4/sr1_.p3d', 'rb') as file:        # 
 
-with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
-# with open('./p3ds/l1z1.p3d', 'rb') as file:
+# with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
+with open(f'./p3ds/l1_regions/l1{region}.p3d', 'rb') as file:
 # with open(I, 'rb') as file:
     p3d_file = file.read()
 
@@ -49,29 +49,30 @@ def _next(block):
         # else: name = chunk_id_list[chunk_id]
     else:
         name = CHUNKS[chunk_id].__name__
-        print(name, chunk_id, data_size, chunk_size)
+        # print(name, chunk_id, data_size, chunk_size)
         chunk_data = CHUNKS[chunk_id](block[header:data_size])
 
         # print(name)
         # json.dumps(chunk_data)  # catch non json compatible types
 
+    return { name: [chunk_data, child_list] }
 
-    if chunk_data and child_list:
-        return { name: [chunk_data, child_list] }
-    elif not chunk_data and child_list:
-        return { name: child_list }
-    elif chunk_data and not child_list:
-        return { name: chunk_data }
-    else: return name
+    # if chunk_data and child_list:
+        # return { name: [chunk_data, child_list] }
+    # elif not chunk_data and child_list:
+    #     return { name: child_list }
+    # elif chunk_data and not child_list:
+    #     return { name: chunk_data }
+    # else: return name
 
 # I2 = I[:-4] + '.json'
 
 
 if __name__ == '__main__':
     ret = _next(p3d_file)
-    # print(ret)
-    # with open(I2, 'wt') as dump:
-    #     json.dump(ret, dump, indent=2)
+    print(region)
+    with open(f'./l1_regions__intersect_jsons__sorted_by_terrain/l1{region}.json', 'wt') as dump:
+        json.dump(ret, dump, indent=2)
     # for i in counter:
     #     if i in chunk_id_list: print(counter[i], chunk_id_list[i])
     #     else: print(counter[i], i)

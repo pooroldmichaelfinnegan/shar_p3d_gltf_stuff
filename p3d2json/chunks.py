@@ -32,14 +32,15 @@ def IntersectDSG(blob):
 def BBox(blob):
     _box = struct.unpack('6f' ,blob[:0x1C])
     return { 'Box': _box }
-def BSphere(blob):
-    _sphere = struct.unpack('4f', blob[:0x1C])
-    return { 'Sphere': _sphere }
+# def BSphere(blob):
+#     _sphere = struct.unpack('4f', blob[:0x1C])
+#     return { 'Sphere': _sphere }
 def TerrainType(blob):
     _version, = struct.unpack('<I', blob[:0x4])
     _num_types, = struct.unpack('<I', blob[0x4:0x8])
     _types = [_terrain_types[i] for i in struct.unpack(f'{_num_types}B', blob[0x8:0x8+_num_types])]
-    return { 'Version': _version, 'Types': _types }
+    # return { 'Version': _version, 'Types': _types }
+    return { 'Types': _types }
 # CHUNKS = { **CHUNKS, **{ b'\x03\x00\xF0\x03': IntersectDSG, b'\x03\x00\x01\x00': BBox, b'\x04\x00\x01\x00': BSphere, b'\x0E\x00\x00\x03': TerrainType }}
 
 
@@ -182,10 +183,10 @@ CHUNKS = {
     # b'\x07\x00\xF0\x03': FenceDSG,
     # b'\x00\x00\x00\x03': Wall,
 
-    # b'\x03\x00\xF0\x03': IntersectDSG,
+    b'\x03\x00\xF0\x03': IntersectDSG,
     # b'\x03\x00\x01\x00': BBox,
     # b'\x04\x00\x01\x00': BSphere,
-    # b'\x0E\x00\x00\x03': TerrainType,
+    b'\x0E\x00\x00\x03': TerrainType,
 
     # b'\x04\x00\xF0\x03': TreeDSG,
     # b'\x05\x00\xF0\x03': ContiguousBinNode,
@@ -201,17 +202,17 @@ CHUNKS = {
     # b'\x04\x90\x01\x00': VolumeImage,
     # b'\x05\x90\x01\x00': Sprite,
 
-    b'\x01\x00\xF0\x03': StaticPhysDSG,
-    b'\x00\x00\x01\x07': CollisionObject,
+    # b'\x01\x00\xF0\x03': StaticPhysDSG,
+    # b'\x00\x00\x01\x07': CollisionObject,
     # b'\x23\x00\x01\x07': CollisionObjectAttribute,
-    b'\x21\x00\x01\x07': CollisionVolumeOwner,
-    b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
+    # b'\x21\x00\x01\x07': CollisionVolumeOwner,
+    # b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
     # b'\x20\x00\x01\x07': SelfCollision,
-    b'\x01\x00\x01\x07': CollisionVolume,
+    # b'\x01\x00\x01\x07': CollisionVolume,
     # b'\x06\x00\x01\x07': BBoxVolume,
     # b'\x02\x00\x01\x07': SphereVolume,
     # b'\x03\x00\x01\x07': CylinderVolume,
-    b'\x04\x00\x01\x07': OBBoxVolume,
+    # b'\x04\x00\x01\x07': OBBoxVolume,
     # b'\x05\x00\x01\x07': WallVolume,
     # b'\x07\x00\x01\x07': CollisionVector,
 

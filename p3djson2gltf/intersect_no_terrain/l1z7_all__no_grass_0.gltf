@@ -1,0 +1,85 @@
+{
+    "asset": { "version": "2.0"},
+    "scene": 0,
+    "scenes": [{
+        "nodes": [ 2 ]
+    }],
+    "nodes": [{
+        "mesh": 0
+    }, {
+        "mesh": 1
+    }, {
+        "mesh": 2
+    }],
+    "materials": [{
+        "doubleSided": true
+    }],
+    "meshes": [{
+        "name": "Road",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "material": 0,
+            "mode": 4
+        }]
+    }, {
+        "name": "Grass",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 1
+            },
+            "material": 0,
+            "mode": 4
+        }]
+    }, {
+        "name": "Dirt",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 2
+            },
+            "material": 0,
+            "mode": 4
+        }]
+    }],
+    "accessors": [{
+        "name": "Road",
+        "bufferView": 0,
+        "byteOffset": 0,
+        "componentType": 5126,
+        "count": 3096,
+        "type": "VEC3",
+        "max": [441.1381530761719, 2.3005385398864746, 512.001953125],
+        "min": [324.85943603515625, -2.279221534729004, 263.97412109375]
+    }, {
+        "name": "Grass",
+        "componentType": 5126,
+        "type": "VEC3",
+        "bufferView": 0,
+        "byteOffset": 37152,
+        "count": 6555,
+        "max": [498.51605224609375, 8.911683082580566, 568.1943969726562],
+        "min": [305.1321105957031, -3.9440605640411377, 263.6259460449219]
+    }, {
+        "name": "Dirt",
+        "componentType": 5126,
+        "type": "VEC3",
+        "bufferView": 0,
+        "byteOffset": 115812,
+        "count": 5265,
+        "max": [466.0846862792969, 3.6318109035491943, 539.2349853515625],
+        "min": [297.1372375488281, -3.0399422645568848, 279.9395751953125]
+    }],
+    "bufferViews": [{
+        "name": "L1_Intersects",
+        "buffer": 0,
+        "byteLength": 178992,
+        "byteOffset": 0,
+        "byteStride": 12,
+        "target": 34962
+    }],
+    "buffers": [{
+        "uri": "./l1z7_all__no_grass_0.bin",
+        "byteLength": 178992
+    }]
+}

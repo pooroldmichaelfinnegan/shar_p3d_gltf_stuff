@@ -1,0 +1,45 @@
+{
+    "asset": { "version": "2.0"},
+    "scene": 0,
+    "scenes": [{
+        "nodes": [ 0 ]
+    }],
+    "nodes": [{
+        "mesh": 0
+    }],
+    "materials": [{
+        "doubleSided": false
+    }],
+    "meshes": [{
+        "name": "Grass",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "material": 0,
+            "mode": 4
+        }]
+    }],
+    "accessors": [{
+        "name": "Grass",
+        "componentType": 5126,
+        "type": "VEC3",
+        "bufferView": 0,
+        "byteOffset": 0,
+        "count": 48639,
+        "max": [498.51605224609375, 16.397510528564453, 600.2676391601562],
+        "min": [-325.951904296875, -12.221959114074707, -721.3488159179688]
+    }],
+    "bufferViews": [{
+        "name": "L1_Grass",
+        "buffer": 0,
+        "byteLength": 583668,
+        "byteOffset": 0,
+        "byteStride": 12,
+        "target": 34962
+    }],
+    "buffers": [{
+        "uri": "Grass.bin",
+        "byteLength": 583668
+    }]
+}

@@ -1,0 +1,45 @@
+{
+    "asset": { "version": "2.0"},
+    "scene": 0,
+    "scenes": [{
+        "nodes": [ 0 ]
+    }],
+    "nodes": [{
+        "mesh": 0
+    }],
+    "materials": [{
+        "doubleSided": false
+    }],
+    "meshes": [{
+        "name": "Road",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "material": 0,
+            "mode": 4
+        }]
+    }],
+    "accessors": [{
+        "name": "Road",
+        "componentType": 5126,
+        "type": "VEC3",
+        "bufferView": 0,
+        "byteOffset": 0,
+        "count": 59826,
+        "max": [441.1381530761719, 14.402427673339844, 583.4244384765625],
+        "min": [-324.2649230957031, -12.221959114074707, -684.5712890625]
+    }],
+    "bufferViews": [{
+        "name": "L1_Roads",
+        "buffer": 0,
+        "byteLength": 717912,
+        "byteOffset": 0,
+        "byteStride": 12,
+        "target": 34962
+    }],
+    "buffers": [{
+        "uri": "Road.bin",
+        "byteLength": 717912
+    }]
+}

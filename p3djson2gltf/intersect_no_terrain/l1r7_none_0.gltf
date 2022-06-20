@@ -1,0 +1,45 @@
+{
+    "asset": { "version": "2.0"},
+    "scene": 0,
+    "scenes": [{
+        "nodes": [ 0 ]
+    }],
+    "nodes": [{
+        "mesh": 0
+    }],
+    "materials": [{
+        "doubleSided": false
+    }],
+    "meshes": [{
+        "name": "None",
+        "primitives": [{
+            "attributes": {
+                "POSITION": 0
+            },
+            "material": 0,
+            "mode": 4
+        }]
+    }],
+    "accessors": [{
+        "name": "GraNoness",
+        "componentType": 5126,
+        "type": "VEC3",
+        "bufferView": 0,
+        "byteOffset": 0,
+        "count": 19617,
+        "max": [471.4727478027344, 14.94709587097168, 264.003173828125],
+        "min": [220.0594940185547, -26.893821716308594, -104.13263702392578]
+    }],
+    "bufferViews": [{
+        "name": "L1_None",
+        "buffer": 0,
+        "byteLength": 235404,
+        "byteOffset": 0,
+        "byteStride": 12,
+        "target": 34962
+    }],
+    "buffers": [{
+        "uri": "./l1r7_none_0.bin",
+        "byteLength": 235404
+    }]
+}
