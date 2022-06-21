@@ -126,6 +126,6 @@ loopdict(d)
 # with open('./intersect_add_normals/l1r7_redo_intersects.bin', 'wb') as outbin:
 #     outbin.write(b''.join(b))
 
-with open('./obbox_/l7z6_all_spd__meshes.json', 'wt') as outbin:
+with open('./obbox_/dump.json', 'wt') as outbin:
     # outbin.write(b''.join(b))
     json.dump(s, outbin, indent=2)

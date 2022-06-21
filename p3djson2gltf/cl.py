@@ -59,19 +59,21 @@ class OBBox(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.length = self.scale = Vec3f(self.data).xyz
+        self.length_swap_around = [ self.length[2], self.length[0], self.length[1] ]
         self.transform = Vec3fChunk(self.child[0]['CollisionVector']).xyoz
         self.rotation = Matrix4(
             Vec3fChunk(self.child[1]['CollisionVector']).xyz,  # X
             Vec3fChunk(self.child[2]['CollisionVector']).xyz,  # Y
             Vec3fChunk(self.child[3]['CollisionVector']).xyz,  # Z
-        ).lazy
+        ).lazy_broke
 
     def gltf_node(self, mesh_index: int = 0) -> dict:
         return {
             'mesh': mesh_index,
             'translation': self.transform,
             'rotation': self.rotation,
-            'scale': self.scale
+            # 'scale': self.scale
+            'scale': self.length_swap_around
         }
 
 
@@ -163,7 +165,7 @@ class Matrix4(Chunk):
         self.matrix = [X, Y, Z, W]
         self.IDENTITY = self.I = [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]
         self.lazy = [self.X[0], self.Y[1], self.Z[2], self.W[3]]
-        self.lazy_broke = [self.X[0], self.Z[2], self.Y[1], self.W[3]]
+        self.lazy_broke = [ self.lazy[0], self.lazy[2], self.lazy[1]*-1.0, self.lazy[3],  ]
 
 
 def calc_maxmin(*args: list[float, float, float]):
