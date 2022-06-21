@@ -145,15 +145,15 @@ chunk_id_list = {
     b'\x0F\x11\x12\x00': 'QUATERNION_FORMAT',                              # 0x0012110F
     b'\x10\x11\x12\x00': 'INTERPOLATION_MODE',                             # 0x00121110
     b'\x11\x11\x12\x00': 'COMPRESSED_QUATERNION',                          # 0x00121111
-    b'\x00\x12\x12\x00': 'FRAME_CONTROLLER ',                              # x000121200
-    b'\x00\x13\x12\x00': 'COLOUR ',                                        # x000121300
-    b'\x01\x13\x12\x00': 'VECTOR ',                                        # x000121301
-    b'\x02\x13\x12\x00': 'VECTOR2 ',                                       # x000121302
-    b'\x03\x13\x12\x00': 'INDEX ',                                         # x000121303
-    b'\x04\x13\x12\x00': 'KEY ',                                           # x000121304
-    b'\x00\x14\x12\x00': 'VECTOR ',                                        # x000121400
-    b'\x01\x14\x12\x00': 'VECTOR2 ',                                       # x000121401
-    b'\x02\x14\x12\x00': 'KEY ',                                           # x000121402
+    b'\x00\x12\x12\x00': 'FRAME_CONTROLLER',                               # x000121200
+    b'\x00\x13\x12\x00': 'COLOUR',                                         # x000121300
+    b'\x01\x13\x12\x00': 'VECTOR',                                         # x000121301
+    b'\x02\x13\x12\x00': 'VECTOR2',                                        # x000121302
+    b'\x03\x13\x12\x00': 'INDEX',                                          # x000121303
+    b'\x04\x13\x12\x00': 'KEY',                                            # x000121304
+    b'\x00\x14\x12\x00': 'VECTOR',                                         # x000121400
+    b'\x01\x14\x12\x00': 'VECTOR2',                                        # x000121401
+    b'\x02\x14\x12\x00': 'KEY',                                            # x000121402
     b'\x00\x00\x01\x07': 'OBJECT',                                         # 0x07010000
     b'\x01\x00\x01\x07': 'VOLUME',                                         # 0x07010001
     b'\x02\x00\x01\x07': 'SPHERE',                                         # 0x07010002
@@ -221,17 +221,17 @@ chunk_id_list = {
     b'\x0C\x00\x00\x03': 'EXTRA_MATRIX',                                   # 0x0300000C
     b'\x0D\x00\x00\x03': 'PED_PATH_SEGMENT',                               # 0x0300000D
     b'\x0E\x00\x00\x03': 'TERRAIN_TYPE',                                   # 0x0300000E
-    b'\x00\x01\x00\x03': 'FOLLOWCAM ',                                     # 0x03000100
-    b'\x01\x01\x00\x03': 'WALKERCAM ',                                     # 0x03000101
-    b'\x10\x01\x00\x03': 'CHUNK_SET ',                                     # 0x03000110
-    b'\x00\x06\x00\x03': 'OBJECT_ATTRIBUTES ',                             # 0x03000600
-    b'\x01\x06\x00\x03': 'PHYS_WRAPPER ',                                  # 0x03000601
-    b'\x02\x06\x00\x03': 'ATTRIBUTE_TABLE ',                               # 0x03000602
-    b'\x00\x10\x00\x03': 'BREAKABLE_OBJECT ',                              # 0x03001000
-    b'\x01\x10\x00\x03': 'INST_PARTICLE_SYSTEM ',                          # 0x03001001
-    b'\x00\x00\xf0\x03': 'ENTITY_DSG ',                                    # 0x03f00000
-    b'\x01\x00\xf0\x03': 'STATIC_PHYS_DSG ',                               # 0x03f00001
-    b'\x02\x00\xf0\x03': 'DYNA_PHYS_DSG ',                                 # 0x03f00002
+    b'\x00\x01\x00\x03': 'FOLLOWCAM',                                      # 0x03000100
+    b'\x01\x01\x00\x03': 'WALKERCAM',                                      # 0x03000101
+    b'\x10\x01\x00\x03': 'CHUNK_SET',                                      # 0x03000110
+    b'\x00\x06\x00\x03': 'OBJECT_ATTRIBUTES',                              # 0x03000600
+    b'\x01\x06\x00\x03': 'PHYS_WRAPPER',                                   # 0x03000601
+    b'\x02\x06\x00\x03': 'ATTRIBUTE_TABLE',                                # 0x03000602
+    b'\x00\x10\x00\x03': 'BREAKABLE_OBJECT',                               # 0x03001000
+    b'\x01\x10\x00\x03': 'INST_PARTICLE_SYSTEM',                           # 0x03001001
+    b'\x00\x00\xf0\x03': 'ENTITY_DSG',                                     # 0x03f00000
+    b'\x01\x00\xf0\x03': 'STATIC_PHYS_DSG',                                # 0x03f00001
+    b'\x02\x00\xf0\x03': 'DYNA_PHYS_DSG',                                  # 0x03f00002
     b'\x03\x00\xf0\x03': 'INTERSECT_DSG',                                  # 0x03f00003
     b'\x04\x00\xf0\x03': 'TREE_DSG',                                       # 0x03f00004
     b'\x05\x00\xf0\x03': 'CONTIGUOUS_BIN_NODE',                            # 0x03f00005

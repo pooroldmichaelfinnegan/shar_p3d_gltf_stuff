@@ -1,11 +1,12 @@
 
 class Chunk:
     def __init__(self, chunk_body: list[dict, list]):
-        self.chunk_body = chunk_body
-        self.data  = chunk_body[0]
-        self.child = chunk_body[1]
+        self.chunk_body: list = chunk_body
+        print(f'{self}{self.chunk_body = }')
+        self.data: dict = chunk_body[0]
+        self.child: list = chunk_body[1]
 
-        ## for when data and children sections were filtered out if empty
+        ## for when data and/or children sections were filtered out if empty
         # if isinstance(chunk_body, dict):
         #     self.data  = chunk_body
         # elif isinstance(chunk_body, list):
@@ -58,14 +59,14 @@ class OBBox(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.length = self.scale = Vec3f(self.data).xyz
-        self.transform = Vec3f(self.child[0]['CollisionVector']).xyoz
+        self.transform = Vec3fChunk(self.child[0]['CollisionVector']).xyoz
         self.rotation = Matrix4(
-            Vec3f(self.child[1]['CollisionVector']).xyz,   # X
-            Vec3f(self.child[2]['CollisionVector']).xyz,   # Y
-            Vec3f(self.child[3]['CollisionVector']).xyz,   # Z
+            Vec3fChunk(self.child[1]['CollisionVector']).xyz,  # X
+            Vec3fChunk(self.child[2]['CollisionVector']).xyz,  # Y
+            Vec3fChunk(self.child[3]['CollisionVector']).xyz,  # Z
         ).lazy
 
-    def gltf_node(self, mesh_index: int = 0):
+    def gltf_node(self, mesh_index: int = 0) -> dict:
         return {
             'mesh': mesh_index,
             'translation': self.transform,
@@ -77,14 +78,16 @@ class OBBox(Chunk):
 class Cylinder(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
-        self.postition = self.transform = Vec3f(self.child[0]['CollisionVector']).xyoz
-        self.rotation = Vec3f(self.child[0]['CollisionVector']).xyz
-        self.length = self.scale = Vec3f(self.data).xyz
+        self.postition = self.transform = Vec3fChunk(self.child[0]['CollisionVector']).xyoz
+        self.rotation = Vec3fChunk(self.child[0]['CollisionVector']).xyz
+        self.length = self.scale = Vec3fChunk(self.data).xyz
 
 
 class Intersect(Chunk):
+    ''' IntersectDSG Chunk '''
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
+
         self.indices3      = self.data['Indices']
         self.positions3    = self.data['Positions']
         self.facenormals3  = self.data['Normals']
@@ -132,20 +135,26 @@ class BBox(Chunk):
         self.box = self.data['Box']
 
         self.xyz1  = self.box[0:3]
-        self.xyoz1 = self.xyz1[2]*-1.0
         self.xyz2  = self.box[3:6]
+        self.xyoz1 = self.xyz1[2]*-1.0
         self.xyoz2 = self.xyz2[2]*-1.0
 
 
-class Vec3f(Chunk):
+class Vec3fChunk(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
+
         self.items = list(self.data.items())
         self.xyz  = [self.items[0][1], self.items[1][1], self.items[2][1]]
         self.xyoz = [self.items[0][1], self.items[1][1], self.items[2][1]*-1.0]
 
-    # def __call__(self) -> list[float, float, float]:
-    #     return self.xyz
+
+class Vec3f:
+    def __init__(self, Vec3: dict):
+        self.items = list(Vec3.items())
+        self.xyz  = [self.items[0][1], self.items[1][1], self.items[2][1]]
+        self.xyoz = [self.items[0][1], self.items[1][1], self.items[2][1]*-1.0]
+
 
 
 class Matrix4(Chunk):
@@ -153,7 +162,8 @@ class Matrix4(Chunk):
         self.X, self.Y, self.Z, self.W = X, Y, Z, W
         self.matrix = [X, Y, Z, W]
         self.IDENTITY = self.I = [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]
-        self.lazy = [self.X[0]*-1.0, self.Y[1]*-1.0, self.Z[2]*-1.0, self.W[3]]
+        self.lazy = [self.X[0], self.Y[1], self.Z[2], self.W[3]]
+        self.lazy_broke = [self.X[0], self.Z[2], self.Y[1], self.W[3]]
 
 
 def calc_maxmin(*args: list[float, float, float]):

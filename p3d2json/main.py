@@ -7,20 +7,22 @@ from list_of_chunk_ids import chunk_id_list  # for hacky chunk counter
 
 # I = sys.argv[1]
 # O = sys.argv[2]
-# region = 'z7'
+region = 'z6'
+
 # with open('./p3ds/flandersHouse.p3d', 'rb') as file:  # modified p3ds to test on
 # with open('./p3ds/l4/loadZones.p3d', 'rb') as file:   # 
 # with open('./p3ds/l4/sr1_.p3d', 'rb') as file:        # 
 
 # with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
-with open(f'./p3ds/l1_regions/l1{region}.p3d', 'rb') as file:
+with open(f'./p3ds/l7{region}.p3d', 'rb') as file:
 # with open(I, 'rb') as file:
     p3d_file = file.read()
 
 counter = {}
+uid = {}
 
 def _next(block):
-    global counter
+    # global counter
     header, chunk_id = 0xC, block[:0x4]
     data_size = int.from_bytes(block[0x4:0x8], 'little')
     chunk_size = int.from_bytes(block[0x8:0xC], 'little')
@@ -31,8 +33,8 @@ def _next(block):
     while data_size+_sum < chunk_size:
         # print(chunk_id, data_size + _sum)
         child_size = int.from_bytes(block[data_size+_sum+0x8:data_size+_sum+0xC], 'little')
-        child_list += [_next(block[data_size+_sum:])]  # append child_list
-        _sum += child_size  # move to next child
+        child_list += [ _next(block[data_size+_sum:]) ]  # append child_list
+        _sum += child_size
 
     # chunk_raw_data = block[header:data_size].decode('utf-8', 'replace')
 
@@ -42,11 +44,13 @@ def _next(block):
             if v: temp_list += [v]
     child_list = temp_list
 
-    name = ''
+    # name = ''
+
     if chunk_id not in CHUNKS:
-        chunk_data = {};return {}
-        # if chunk_id in chunk_id_list: name = chunk_id.decode('ascii', 'replace')
-        # else: name = chunk_id_list[chunk_id]
+        chunk_data = {}; return {}
+    # if chunk_id in chunk_id_list: name = chunk_id.decode('ascii', 'replace')
+    # else: name = chunk_id_list[chunk_id]
+
     else:
         name = CHUNKS[chunk_id].__name__
         # print(name, chunk_id, data_size, chunk_size)
@@ -57,6 +61,21 @@ def _next(block):
 
     return { name: [chunk_data, child_list] }
 
+
+
+    ## output readable chunk id tree hierarchy
+    # if chunk_id not in chunk_id_list: name = chunk_id.decode('ascii', 'replace')
+    # else: name = chunk_id_list[chunk_id].lower()
+
+    # global uid
+    # if name not in uid: uid[name] = 1
+    # else: uid[name] += 1
+
+    # return { f'{name}_{uid[name]}': child_list }
+
+
+
+    ## for filtering out empty lists and dicts, removed because traversing pain in the ass
     # if chunk_data and child_list:
         # return { name: [chunk_data, child_list] }
     # elif not chunk_data and child_list:
@@ -71,7 +90,7 @@ def _next(block):
 if __name__ == '__main__':
     ret = _next(p3d_file)
     print(region)
-    with open(f'./l1_regions__intersect_jsons__sorted_by_terrain/l1{region}.json', 'wt') as dump:
+    with open(f'./l7{region}_all_spd', 'wt') as dump:
         json.dump(ret, dump, indent=2)
     # for i in counter:
     #     if i in chunk_id_list: print(counter[i], chunk_id_list[i])
