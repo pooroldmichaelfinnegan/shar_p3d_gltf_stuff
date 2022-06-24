@@ -8,6 +8,10 @@ def P3D(blob): return {}
 CHUNKS = { b'\x50\x33\x44\xFF': P3D }
 
 
+def dot6f(fl: float) -> float:
+    return float(f'{fl:.6f}')
+
+
 # fence walls idk dsg
 def FenceDSG(blob): return {}
 def Wall(blob):
@@ -133,12 +137,16 @@ def CylinderVolume(blob):
     _cylinder_radius, _length, _flat_end = struct.unpack(f'<2fH', blob[:0x10])
     return { 'CylinderRadius': _cylinder_radius, 'Length': _length, 'FlatEnd': _flat_end }
 def OBBoxVolume(blob):
-    _length_1, _length_2, _length_3 = struct.unpack('3f', blob[:0xC])
+    _length_1 = float(f"{struct.unpack('f', blob[:4])[0]:.6f}")
+    _length_2 = float(f"{struct.unpack('f', blob[4:8])[0]:.6f}")
+    _length_3 = float(f"{struct.unpack('f', blob[8:12])[0]:.6f}")
+    # _length_1, _length_2, _length_3 = struct.unpack('3f', blob[:0xC])
     return { 'Length1': _length_1, 'Length2': _length_2, 'Length3': _length_3 }
 def WallVolume(blob): return {}
 def CollisionVector(blob):
     _x, _y, _z = struct.unpack('3f', blob[:0xC])
-    return { 'X': _x, 'Y': _y, 'Z': _z }
+    return { 'X': dot6f(_x), 'Y': dot6f(_y), 'Z': dot6f(_z) }
+    # return { 'X': _x, 'Y': _y, 'Z': _z }
 # CHUNKS = { **CHUNKS, **{ b'\x01\x00\xF0\x03': StaticPhysDSG, b'\x00\x00\x01\x07': CollisionObject, b'\x23\x00\x01\x07': CollisionObjectAttribute, b'\x21\x00\x01\x07': CollisionVolumeOwner, b'\x22\x00\x01\x07': CollisionVolumeOwnerName, b'\x20\x00\x01\x07': SelfCollision, b'\x01\x00\x01\x07': CollisionVolume, b'\x06\x00\x01\x07': BBoxVolume, b'\x02\x00\x01\x07': SphereVolume, b'\x03\x00\x01\x07': CylinderVolume, b'\x04\x00\x01\x07': OBBoxVolume, b'\x05\x00\x01\x07': WallVolume, b'\x07\x00\x01\x07': CollisionVector }}
 
 

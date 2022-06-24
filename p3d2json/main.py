@@ -90,7 +90,7 @@ def _next(block):
 if __name__ == '__main__':
     ret = _next(p3d_file)
     print(region)
-    with open(f'./l7{region}_all_spd', 'wt') as dump:
+    with open(f'./l1{region}_all_spd.json', 'wt') as dump:
         json.dump(ret, dump, indent=2)
     # for i in counter:
     #     if i in chunk_id_list: print(counter[i], chunk_id_list[i])

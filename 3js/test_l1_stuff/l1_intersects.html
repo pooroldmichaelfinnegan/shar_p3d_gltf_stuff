@@ -83,7 +83,7 @@
 
 			const loader = new GLTFLoader();
 			// loader.setDRACOLoader( dracoLoader );
-            loader.load( 'l1_fences_.gltf', function ( gltf ) {
+            loader.load( 'l1z6_obbox_col__so_close_no_rot.gltf', function ( gltf ) {
 				const fences = gltf.scene;
 				fences.position.set( 1, 1, 0 );
 				fences.scale.set( 0.01, 0.01, 0.01 );
@@ -98,7 +98,7 @@
 				// animate();
 			}, undefined, function ( e ) { console.error( e ); } );
 
-			loader.load( 'l1_intersects_single_file_exported_from_blender.gltf', function ( gltf ) {
+			loader.load( 'l1_fences_.gltf', function ( gltf ) {
 			// loader.load( 'l1z1_obbox_all.gltf', function ( gltf ) {
 				const model = gltf.scene;
                 // console.log({ model })
