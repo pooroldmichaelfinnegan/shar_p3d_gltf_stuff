@@ -9,7 +9,7 @@ from cl import calc_maxmin, Intersect, StaticPhysDSG, OBBox
 # with open('./l1z2_col_chunks.json', 'rt') as p3djson:
 # with open('./intersect_add_normals/l1_all_intersects_updated.json', 'rt') as p3djson:
 # with open('./l1_regions__intersect_jsons__sorted_by_terrain/l1_all_intersects_2.json', 'rt') as p3djson:
-with open('./obbox_threejs/l1z6_all_spd_dot6f.json', 'rt') as p3djson_file:
+with open('./obbox_threejs/l7z6_all_spd_dot6f.json', 'rt') as p3djson_file:
     p3djson = json.loads(p3djson_file.read())
 
 

@@ -1,18 +1,10 @@
+import math
+
 class Chunk:
     def __init__(self, chunk_body: list[dict, list]):
         self.chunk_body: list = chunk_body
         self.data: dict = chunk_body[0]
         self.child: list = chunk_body[1]
-        ## for when data and/or children sections were filtered out if empty
-        # if isinstance(chunk_body, dict):
-        #     self.data  = chunk_body
-        # elif isinstance(chunk_body, list):
-        #     if len(chunk_body) == 1:
-        #         self.child = chunk_body[0]
-        #     elif len(chunk_body) == 2:
-        #         self.data  = chunk_body[0]
-        #         self.child = chunk_body[1]
-        #     else: raise 'ERROR chunk body invalid type'
 
 
 class StaticPhysDSG(Chunk):
@@ -50,7 +42,7 @@ class CollisionVolume(Chunk):
                 case 'OBBoxVolume': OBBox(i['OBBoxVolume'])
                 case 'CylinderVolume': Cylinder(i['CylinderVolume'])
                 case _: pass
-            
+
 
 class OBBox(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
@@ -66,6 +58,9 @@ class OBBox(Chunk):
         self.o0yzx = [ self.o0[1], self.o0[2], self.o0[0] ]
         self.o0zxy = [ self.o0[2], self.o0[0], self.o0[1] ]
         self.o2yzx = [ self.o2[1], self.o2[2], self.o2[0] ]
+        self.allx = [ self.o0[0], self.o1[0], self.o2[0] ]
+        self.ally = [ self.o0[1], self.o1[1], self.o2[1] ]
+        self.allz = [ self.o0[2], self.o1[2], self.o2[2] ]
 
 
     def shar_obbox_optimize_axis_func(self, rot, some_length_vector) -> list[float]:
@@ -73,18 +68,19 @@ class OBBox(Chunk):
             srr2\game\libs\sim\simcollision\collisionvolume.cpp
                 line 954
                     void OBBoxVolume::OptimizeAxis()'''
-        
-        
+
+
         axes = [ 0, 0, 0 ]
-        gt_fabs_1 = lambda f: not -0.9 < f < 0.9  # check if component in unit vector is the norm (just -1.0 or 1.0 roughly (within .0001))
+        gt_fabs_1 = lambda f: not -0.9999 < f < 0.9999  # check if component in unit vector is the norm (just -1.0 or 1.0 roughly (within .0001))
 
         # print(f"{self.o0, self.o1, self.o2 = }")``
-        self.normalize = lambda vec: [ j / ( (sum( i**2 for i in vec ))**0.5 ) for j in vec ]
+        self.normalize = lambda vec: [ j/((sum(i**2 for i in vec))**0.5) for j in vec ]
         self.rounding = lambda unit_vector: (1 - sum(i**2 for i in unit_vector)) ** 2
         for index, vec in enumerate([self.o0, self.o1, self.o2]):
             if not any([gt_fabs_1(q) for q in vec]):
                 # self.moved[2] -= 30
-                return { 'rotation': [ *rot, 0 ], 'scale': self.length }
+                self.R = [0,1,2]
+                return { 'rotation': Quat([self.o0, self.o1, self.o2]), 'scale': self.length }
             for flt_index, flt in enumerate(vec):
                 if gt_fabs_1(flt):
                     axes[index] = flt_index
@@ -98,7 +94,8 @@ class OBBox(Chunk):
 
         # axis_ = { self.o0: [ 1, 0, 0, 0 ], self.o1: [ 0, 1, 0, 0 ], self.o2: [ 0, 0, 1, 0 ] }
 
-        return { 'rotation': [ *rot, 0 ], 'scale': oriented_axis_length }
+        # return { 'rotation': [ 1, 0, 0, 0 ] , 'scale': oriented_axis_length }
+        return { 'rotation': Quat([self.o0, self.o1, self.o2]) , 'scale': self.length }
 
 
     def gltf_node(self, mesh_index: int = 0) -> dict:
@@ -107,10 +104,10 @@ class OBBox(Chunk):
             # 'translation': self.transform,
             'translation': self.moved,
             # 'scale': self.scale,
-            'scale': self.shar_obbox_optimize_axis_func(self.o2, self.length)['scale'],
+            'scale': self.shar_obbox_optimize_axis_func(self.allx, self.length)['scale'],
             # 'rotation': self.rotation,
             # 'rotation': self.Irotation,
-            'rotation': self.shar_obbox_optimize_axis_func(self.o2, self.length)['rotation'],
+            'rotation': self.shar_obbox_optimize_axis_func(self.allx, self.length)['rotation'],
         }
 
 
@@ -196,10 +193,101 @@ class Vec3:
     
     # from math import sqrt, sqr
     # Normalize = lambda vec3: sqrt(j/sum(sqr(i) for i in vec3) for j in vec3)
-  
 
-def calc_maxmin(*args: list[float, float, float]):
+
+def calc_maxmin(*args: Vec3) -> list[float, float]:
     _max = list(map(max, zip(*args)))
     _min = list(map(min, zip(*args)))
     return _max, _min
 
+
+nxt = [ 1, 2, 0 ]
+
+def Quat(mat):
+    r''' MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
+        Simpsons Hit&Run\game\libs\pure3d\toollib\src\tlQuat.cpp:417 '''
+        
+
+    q = [ 0.0, 0.0, 0.0, 0.0 ]
+
+    tr = mat[0][0] + mat[1][1] + mat[2][2]
+
+    if tr > 0.0:
+        s = math.sqrt(tr + 1.0)
+        w = -s * 0.5
+
+        if s:
+            s = 0.5 / s
+        x = (mat[2][1] - mat[1][2]) * s
+        y = (mat[0][2] - mat[2][0]) * s
+        z = (mat[1][0] - mat[0][1]) * s
+
+    else:
+        i = 0
+        if (mat[1][1] > mat[0][0]): i = 1
+        if (mat[2][2] > mat[i][i]): i = 2
+        j = nxt[i]
+        k = nxt[j]
+        s = math.sqrt( (mat[i][i] - (mat[j][j]+mat[k][k])) + 1.0 );      
+
+        q[i] = s * 0.5
+        if s: s = 0.5 / s
+
+        q[3] = (mat[k][j] - mat[j][k]) * s
+        q[j] = (mat[j][i] + mat[i][j]) * s
+        q[k] = (mat[k][i] + mat[i][k]) * s
+
+        w = -q[3]
+        x =  q[0]
+        y =  q[1]
+        z =  q[2]
+
+    return [ x, y, z, w ]
+
+
+# /Users/g/_m/_shar/SRR2_/game/libs/pure3d/toollib/src/tlQuat.cpp
+#   line 417
+#
+# // MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
+# tlQuat::tlQuat(const tlMatrix& mat)
+# {
+#     float q[4];
+#     float tr,s;
+#     int i,j,k;
+#     tr = mat.element[0][0] + mat.element[1][1] + mat.element[2][2];
+#     if (tr > 0.0)
+#     {
+#         s = sqrtf(tr + 1.0f);
+#         w = -s * 0.5f;
+#         if (s!=0.0f)
+#         {
+#             s = 0.5f / s;
+#         }
+#         x = (mat.element[2][1] - mat.element[1][2]) * s;
+#         y = (mat.element[0][2] - mat.element[2][0]) * s;
+#         z = (mat.element[1][0] - mat.element[0][1]) * s;
+#     } 
+#     else 
+#     {
+#         i = 0;
+#         if (mat.element[1][1] > mat.element[0][0]) i = 1;
+#         if (mat.element[2][2] > mat.element[i][i]) i = 2;
+#         j = nxt[i];
+#         k = nxt[j];
+#         s = sqrtf( (mat.element[i][i] - (mat.element[j][j]+mat.element[k][k])) + 1.0f );      
+
+#         q[i] = s * 0.5f;
+#         if (s!=0.0f)
+#         {
+#             s = 0.5f / s;
+#         }
+#         q[3] = (mat.element[k][j] - mat.element[j][k]) * s;
+#         q[j] = (mat.element[j][i] + mat.element[i][j]) * s;
+#         q[k] = (mat.element[k][i] + mat.element[i][k]) * s;
+
+#         w = -q[3];
+#         x = q[0];
+#         y = q[1];
+#         z = q[2];
+#     }  
+# }

@@ -5,10 +5,11 @@ from enums import _locator_types, _event_types, _trigger_volume_types, _terrain_
 
 # root
 def P3D(blob): return {}
-CHUNKS = { b'\x50\x33\x44\xFF': P3D }
+# CHUNKS = { b'\x50\x33\x44\xFF': P3D }
 
 
-def dot6f(fl: float) -> float:
+def float6(fl: float) -> float:
+    ''' turn float to float of 6 decimal places, dont know why struct.unpack returns 17'''
     return float(f'{fl:.6f}')
 
 
@@ -36,9 +37,7 @@ def IntersectDSG(blob):
 def BBox(blob):
     _box = struct.unpack('6f' ,blob[:0x1C])
     return { 'Box': _box }
-# def BSphere(blob):
-#     _sphere = struct.unpack('4f', blob[:0x1C])
-#     return { 'Sphere': _sphere }
+def BSphere(blob): return {}
 def TerrainType(blob):
     _version, = struct.unpack('<I', blob[:0x4])
     _num_types, = struct.unpack('<I', blob[0x4:0x8])
@@ -88,15 +87,15 @@ def WBTriggerVolume(blob):
 
 
 # TEXTURE
-# def Texture(blob): return {}
-# def Image(blob): return {}
-# def ImageData(blob):
-#     _size, = struct.unpack(f'<I', blob[:0x4])
-#     # _image_data, = struct.unpack(f'{_size}s', blob[0x4:])
-#     return {}
-# def ImageFileName(blob): return {}
-# def VolumeImage(blob): return {}
-# def Sprite(blob): return {}
+def Texture(blob): return {}
+def Image(blob): return {}
+def ImageData(blob):
+    _size, = struct.unpack(f'<I', blob[:0x4])
+    # _image_data, = struct.unpack(f'{_size}s', blob[0x4:])
+    return {}
+def ImageFileName(blob): return {}
+def VolumeImage(blob): return {}
+def Sprite(blob): return {}
 # CHUNKS = { **CHUNKS, **{ b'\x00\x90\x01\x00': Texture, b'\x01\x90\x01\x00': Image, b'\x02\x90\x01\x00': ImageData, b'\x03\x90\x01\x00': ImageFileName, b'\x04\x90\x01\x00': VolumeImage, b'\x05\x90\x01\x00': Sprite }}
 
 
@@ -145,7 +144,7 @@ def OBBoxVolume(blob):
 def WallVolume(blob): return {}
 def CollisionVector(blob):
     _x, _y, _z = struct.unpack('3f', blob[:0xC])
-    return { 'X': dot6f(_x), 'Y': dot6f(_y), 'Z': dot6f(_z) }
+    return { 'X': float6(_x), 'Y': float6(_y), 'Z': float6(_z) }
     # return { 'X': _x, 'Y': _y, 'Z': _z }
 # CHUNKS = { **CHUNKS, **{ b'\x01\x00\xF0\x03': StaticPhysDSG, b'\x00\x00\x01\x07': CollisionObject, b'\x23\x00\x01\x07': CollisionObjectAttribute, b'\x21\x00\x01\x07': CollisionVolumeOwner, b'\x22\x00\x01\x07': CollisionVolumeOwnerName, b'\x20\x00\x01\x07': SelfCollision, b'\x01\x00\x01\x07': CollisionVolume, b'\x06\x00\x01\x07': BBoxVolume, b'\x02\x00\x01\x07': SphereVolume, b'\x03\x00\x01\x07': CylinderVolume, b'\x04\x00\x01\x07': OBBoxVolume, b'\x05\x00\x01\x07': WallVolume, b'\x07\x00\x01\x07': CollisionVector }}
 
@@ -210,19 +209,19 @@ CHUNKS = {
     # b'\x04\x90\x01\x00': VolumeImage,
     # b'\x05\x90\x01\x00': Sprite,
 
-    b'\x01\x00\xF0\x03': StaticPhysDSG,
-    b'\x00\x00\x01\x07': CollisionObject,
-    b'\x23\x00\x01\x07': CollisionObjectAttribute,
-    b'\x21\x00\x01\x07': CollisionVolumeOwner,
-    b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
-    b'\x20\x00\x01\x07': SelfCollision,
-    b'\x01\x00\x01\x07': CollisionVolume,
-    b'\x06\x00\x01\x07': BBoxVolume,
-    b'\x02\x00\x01\x07': SphereVolume,
-    b'\x03\x00\x01\x07': CylinderVolume,
-    b'\x04\x00\x01\x07': OBBoxVolume,
-    b'\x05\x00\x01\x07': WallVolume,
-    b'\x07\x00\x01\x07': CollisionVector,
+    # b'\x01\x00\xF0\x03': StaticPhysDSG,
+    # b'\x00\x00\x01\x07': CollisionObject,
+    # b'\x23\x00\x01\x07': CollisionObjectAttribute,
+    # b'\x21\x00\x01\x07': CollisionVolumeOwner,
+    # b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
+    # b'\x20\x00\x01\x07': SelfCollision,
+    # b'\x01\x00\x01\x07': CollisionVolume,
+    # b'\x06\x00\x01\x07': BBoxVolume,
+    # b'\x02\x00\x01\x07': SphereVolume,
+    # b'\x03\x00\x01\x07': CylinderVolume,
+    # b'\x04\x00\x01\x07': OBBoxVolume,
+    # b'\x05\x00\x01\x07': WallVolume,
+    # b'\x07\x00\x01\x07': CollisionVector,
 
     # b'\x0B\x00\xF0\x03': WorldSphereDSG,
     # b'\x00\x00\x01\x00': Mesh,
