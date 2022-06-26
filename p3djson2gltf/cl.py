@@ -48,66 +48,25 @@ class OBBox(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.length = self.scale = Vec3(self.data).xyz
-        self.length_4blender_zxy = [ self.length[2], self.length[0], self.length[1] ]
-        self.length_4blender_yzx = [ self.length[1], self.length[2], self.length[0] ]
-        self.transform = Vec3Chunk(self.child[0]['CollisionVector']).xyoz
-        self.moved = self.transform
+        self.transformoz = Vec3Chunk(self.child[0]['CollisionVector']).xyoz
+        self.transform = Vec3Chunk(self.child[0]['CollisionVector']).xyz
         self.o0 = Vec3Chunk(self.child[1]['CollisionVector']).xyz  # X
         self.o1 = Vec3Chunk(self.child[2]['CollisionVector']).xyz  # Y
         self.o2 = Vec3Chunk(self.child[3]['CollisionVector']).xyz  # Z
-        self.o0yzx = [ self.o0[1], self.o0[2], self.o0[0] ]
-        self.o0zxy = [ self.o0[2], self.o0[0], self.o0[1] ]
-        self.o2yzx = [ self.o2[1], self.o2[2], self.o2[0] ]
-        self.allx = [ self.o0[0], self.o1[0], self.o2[0] ]
-        self.ally = [ self.o0[1], self.o1[1], self.o2[1] ]
-        self.allz = [ self.o0[2], self.o1[2], self.o2[2] ]
+        self.o0oxy = [ self.o0[0]*-1.0, self.o0[1]*-1.0, self.o0[2] ]
+        self.o1oxy = [ self.o1[0]*-1.0, self.o1[1]*-1.0, self.o1[2] ]
+        self.o2oxy = [ self.o2[0]*-1.0, self.o2[1]*-1.0, self.o2[2] ]
 
-
-    def shar_obbox_optimize_axis_func(self, rot, some_length_vector) -> list[float]:
-        ''' path to cpp method shar source code this method is bassed on 
-            srr2\game\libs\sim\simcollision\collisionvolume.cpp
-                line 954
-                    void OBBoxVolume::OptimizeAxis()'''
-
-
-        axes = [ 0, 0, 0 ]
-        gt_fabs_1 = lambda f: not -0.9999 < f < 0.9999  # check if component in unit vector is the norm (just -1.0 or 1.0 roughly (within .0001))
-
-        # print(f"{self.o0, self.o1, self.o2 = }")``
         self.normalize = lambda vec: [ j/((sum(i**2 for i in vec))**0.5) for j in vec ]
         self.rounding = lambda unit_vector: (1 - sum(i**2 for i in unit_vector)) ** 2
-        for index, vec in enumerate([self.o0, self.o1, self.o2]):
-            if not any([gt_fabs_1(q) for q in vec]):
-                # self.moved[2] -= 30
-                self.R = [0,1,2]
-                return { 'rotation': Quat([self.o0, self.o1, self.o2]), 'scale': self.length }
-            for flt_index, flt in enumerate(vec):
-                if gt_fabs_1(flt):
-                    axes[index] = flt_index
-                    break
-        
-        ## fix this monte
-        # self.oriented_axis_length = [some_length_vector[i-1] for i in self.axes]
-        # self.axes2 = [self.axes[i-1] for i, v in enumerate(self.axes)]
-        oriented_axis_length = [ some_length_vector[axes.index(i)] for i, v in enumerate(axes) ]
-        axes2 = [ axes[axes.index(i)] for i, v in enumerate(axes) ]
-
-        # axis_ = { self.o0: [ 1, 0, 0, 0 ], self.o1: [ 0, 1, 0, 0 ], self.o2: [ 0, 0, 1, 0 ] }
-
-        # return { 'rotation': [ 1, 0, 0, 0 ] , 'scale': oriented_axis_length }
-        return { 'rotation': Quat([self.o0, self.o1, self.o2]) , 'scale': self.length }
 
 
     def gltf_node(self, mesh_index: int = 0) -> dict:
         return {
             'mesh': mesh_index,
-            # 'translation': self.transform,
-            'translation': self.moved,
-            # 'scale': self.scale,
-            'scale': self.shar_obbox_optimize_axis_func(self.allx, self.length)['scale'],
-            # 'rotation': self.rotation,
-            # 'rotation': self.Irotation,
-            'rotation': self.shar_obbox_optimize_axis_func(self.allx, self.length)['rotation'],
+            'translation': self.transformoz,
+            'scale': self.length,
+            'rotation': Quat([ self.o0oxy, self.o1oxy, self.o2oxy ]),
         }
 
 
@@ -137,7 +96,7 @@ class Intersect(Chunk):
 
         ## oppisite z co-ord
         self.positions3_oz = [[ x, y, z*-1.0 ] for x, y, z in self.positions3 ]
-        self.positions_oz  = [ i for j in self.positions3 for i in j ]
+        self.positions_oz = [ i for j in self.positions3 for i in j ]
         self.positions_oz_max, self.positions_oz_min = calc_maxmin(*self.positions3_oz)
 
 
@@ -201,23 +160,21 @@ def calc_maxmin(*args: Vec3) -> list[float, float]:
     return _max, _min
 
 
-nxt = [ 1, 2, 0 ]
 
-def Quat(mat):
+
+def Quat(mat) -> list:
     r''' MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
         Simpsons Hit&Run\game\libs\pure3d\toollib\src\tlQuat.cpp:417 '''
-        
 
     q = [ 0.0, 0.0, 0.0, 0.0 ]
-
+    nxt = [ 1, 2, 0 ]
     tr = mat[0][0] + mat[1][1] + mat[2][2]
 
     if tr > 0.0:
         s = math.sqrt(tr + 1.0)
         w = -s * 0.5
 
-        if s:
-            s = 0.5 / s
+        if s: s = 0.5 / s
         x = (mat[2][1] - mat[1][2]) * s
         y = (mat[0][2] - mat[2][0]) * s
         z = (mat[1][0] - mat[0][1]) * s
@@ -244,50 +201,3 @@ def Quat(mat):
 
     return [ x, y, z, w ]
 
-
-# /Users/g/_m/_shar/SRR2_/game/libs/pure3d/toollib/src/tlQuat.cpp
-#   line 417
-#
-# // MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
-# tlQuat::tlQuat(const tlMatrix& mat)
-# {
-#     float q[4];
-#     float tr,s;
-#     int i,j,k;
-#     tr = mat.element[0][0] + mat.element[1][1] + mat.element[2][2];
-#     if (tr > 0.0)
-#     {
-#         s = sqrtf(tr + 1.0f);
-#         w = -s * 0.5f;
-#         if (s!=0.0f)
-#         {
-#             s = 0.5f / s;
-#         }
-#         x = (mat.element[2][1] - mat.element[1][2]) * s;
-#         y = (mat.element[0][2] - mat.element[2][0]) * s;
-#         z = (mat.element[1][0] - mat.element[0][1]) * s;
-#     } 
-#     else 
-#     {
-#         i = 0;
-#         if (mat.element[1][1] > mat.element[0][0]) i = 1;
-#         if (mat.element[2][2] > mat.element[i][i]) i = 2;
-#         j = nxt[i];
-#         k = nxt[j];
-#         s = sqrtf( (mat.element[i][i] - (mat.element[j][j]+mat.element[k][k])) + 1.0f );      
-
-#         q[i] = s * 0.5f;
-#         if (s!=0.0f)
-#         {
-#             s = 0.5f / s;
-#         }
-#         q[3] = (mat.element[k][j] - mat.element[j][k]) * s;
-#         q[j] = (mat.element[j][i] + mat.element[i][j]) * s;
-#         q[k] = (mat.element[k][i] + mat.element[i][k]) * s;
-
-#         w = -q[3];
-#         x = q[0];
-#         y = q[1];
-#         z = q[2];
-#     }  
-# }
