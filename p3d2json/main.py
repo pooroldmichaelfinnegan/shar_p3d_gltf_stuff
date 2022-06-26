@@ -14,7 +14,7 @@ region = 'z6'
 # with open('./p3ds/l4/sr1_.p3d', 'rb') as file:        # 
 
 # with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
-with open(f'./p3ds/l7/UFO.p3d', 'rb') as file:
+with open(f'./p3ds/l1_regions/l1r4a.p3d', 'rb') as file:
 # with open(I, 'rb') as file:
     p3d_file = file.read()
 
@@ -90,7 +90,7 @@ def _next(block):
 if __name__ == '__main__':
     ret = _next(p3d_file)
     print(region)
-    with open(f'./l7_m_ufo.json', 'wt') as dump:
+    with open(f'./l1r4a_col.json', 'wt') as dump:
         json.dump(ret, dump, indent=2)
     # for i in counter:
     #     if i in chunk_id_list: print(counter[i], chunk_id_list[i])

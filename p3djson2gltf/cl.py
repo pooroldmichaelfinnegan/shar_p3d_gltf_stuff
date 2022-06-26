@@ -1,3 +1,4 @@
+
 import math
 
 class Chunk:
@@ -47,36 +48,72 @@ class CollisionVolume(Chunk):
 class OBBox(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
-        self.length = self.scale = Vec3(self.data).xyz
-        self.transformoz = Vec3Chunk(self.child[0]['CollisionVector']).xyoz
-        self.transform = Vec3Chunk(self.child[0]['CollisionVector']).xyz
+
+        # scale
+        self.length = Vec3(self.data).xyz
+
+        # position
+        self.position = Vec3Chunk(self.child[0]['CollisionVector']).xyz
+        self.position_opposite_z = Vec3Chunk(self.child[0]['CollisionVector']).xy_opposite_z
+
+        # rotation matrix 3x3
         self.o0 = Vec3Chunk(self.child[1]['CollisionVector']).xyz  # X
         self.o1 = Vec3Chunk(self.child[2]['CollisionVector']).xyz  # Y
         self.o2 = Vec3Chunk(self.child[3]['CollisionVector']).xyz  # Z
-        self.o0oxy = [ self.o0[0]*-1.0, self.o0[1]*-1.0, self.o0[2] ]
-        self.o1oxy = [ self.o1[0]*-1.0, self.o1[1]*-1.0, self.o1[2] ]
-        self.o2oxy = [ self.o2[0]*-1.0, self.o2[1]*-1.0, self.o2[2] ]
+        self.rotation_matrix = [
+            self.o0,
+            self.o1,
+            self.o2
+        ]
 
-        self.normalize = lambda vec: [ j/((sum(i**2 for i in vec))**0.5) for j in vec ]
-        self.rounding = lambda unit_vector: (1 - sum(i**2 for i in unit_vector)) ** 2
 
-
+    # part of gltf exporter 
     def gltf_node(self, mesh_index: int = 0) -> dict:
         return {
             'mesh': mesh_index,
-            'translation': self.transformoz,
+            'translation': self.position_opposite_z,
             'scale': self.length,
-            'rotation': Quat([ self.o0oxy, self.o1oxy, self.o2oxy ]),
+            'rotation': Quat(self.rotation_matrix, opposite_z=True),
         }
 
 
 class Cylinder(Chunk):
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
-        self.postition = self.transform = Vec3Chunk(self.child[0]['CollisionVector']).xyoz
-        self.rotation = Vec3Chunk(self.child[0]['CollisionVector']).xyz
-        self.length = self.scale = Vec3Chunk(self.data).xyz
+        self.radius = self.data['CylinderRadius']
+        self.length = self.data['Length']
 
+        # cylinder if flatend == 1 else capsule
+        self.flatend = self.data['FlatEnd']
+        self.postition = Vec3Chunk(self.child[0]['CollisionVector']).xyz
+        self.postition_opposite_z = Vec3Chunk(self.child[0]['CollisionVector']).xy_opposite_z
+        self.rotation = Vec3Chunk(self.child[1]['CollisionVector']).xyz
+        self.quat = self.rotation + [0]
+
+    def gltf_node(self):
+        return {
+            'mesh': 0,
+            'translation': self.postition_opposite_z,
+            'rotation': self.quat,
+            'scale': [self.radius, self.length, self.radius ]
+        }
+
+
+class Sphere(Chunk):
+    ''' Sphere '''
+    def __init__(self, chunk_body: list[dict, list]):
+        Chunk.__init__(self, chunk_body)
+
+        self.radius = self.data['SphereRadius']
+        self.position = Vec3Chunk(self.child[0]['CollisionVector']).xyz
+        self.position_opposite_z = Vec3Chunk(self.child[0]['CollisionVector']).xy_opposite_z
+
+    def gltf_node(self):
+        return {
+            'mesh': 0,
+            'translation': self.position_opposite_z,
+            'scale': [ self.radius, self.radius, self.radius ]
+        }
 
 class Intersect(Chunk):
     ''' IntersectDSG Chunk '''
@@ -95,7 +132,7 @@ class Intersect(Chunk):
         self.facenormals_max, self.facenormals_min = calc_maxmin(*self.facenormals3)
 
         ## oppisite z co-ord
-        self.positions3_oz = [[ x, y, z*-1.0 ] for x, y, z in self.positions3 ]
+        self.positions3_oz = [[ x, y, -z ] for x, y, z in self.positions3 ]
         self.positions_oz = [ i for j in self.positions3 for i in j ]
         self.positions_oz_max, self.positions_oz_min = calc_maxmin(*self.positions3_oz)
 
@@ -119,8 +156,12 @@ class BSphere(Chunk):
         Chunk.__init__(self, chunk_body)
         self.sphere = self.data['Sphere']
 
-        self.x, self.y, self.z, self.radius = self.sphere[:4]
-        self.oz = self.z * -1.0
+        self.x = self.sphere[0]
+        self.y = self.sphere[1]
+        self.z = self.sphere[2]
+        self.opposite_z = -self.z
+
+        self.radius = self.sphere[4]
 
 
 class BBox(Chunk):
@@ -130,8 +171,8 @@ class BBox(Chunk):
 
         self.xyz1  = self.box[0:3]
         self.xyz2  = self.box[3:6]
-        self.xyoz1 = self.xyz1[2]*-1.0
-        self.xyoz2 = self.xyz2[2]*-1.0
+        self.xy_opposite_z1 = -self.xyz1[2]
+        self.xy_opposite_z2 = -self.xyz2[2]
 
 
 class Vec3Chunk(Chunk):
@@ -139,19 +180,15 @@ class Vec3Chunk(Chunk):
         Chunk.__init__(self, chunk_body)
 
         self.values = list(self.data.values())
-        self.xyz  = [self.values[0], self.values[1], self.values[2]]
-        self.xyoz = [self.values[0], self.values[1], self.values[2]*-1.0]
+        self.xyz = [self.values[0], self.values[1], self.values[2]]
+        self.xy_opposite_z = [self.values[0], self.values[1], -self.values[2]]
 
 
 class Vec3:
     def __init__(self, vec3: dict):
-        self.items = list(vec3.items())
-        self.xyz  = [self.items[0][1], self.items[1][1], self.items[2][1]]
-        self.xyoz = [self.items[0][1], self.items[1][1], self.items[2][1]*-1.0]
-    # def Normalize(self, vec3: 'Vec3') -> 'Vec3':
-    
-    # from math import sqrt, sqr
-    # Normalize = lambda vec3: sqrt(j/sum(sqr(i) for i in vec3) for j in vec3)
+        self.values = list(vec3.values())
+        self.xyz = [self.values[0], self.values[1], self.values[2]]
+        self.xy_opposite_z = [self.values[0], self.values[1], -self.values[2]]
 
 
 def calc_maxmin(*args: Vec3) -> list[float, float]:
@@ -160,15 +197,20 @@ def calc_maxmin(*args: Vec3) -> list[float, float]:
     return _max, _min
 
 
-
-
-def Quat(mat) -> list:
+def Quat(mat, opposite_z: bool = False) -> list:
     r''' MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
-        Simpsons Hit&Run\game\libs\pure3d\toollib\src\tlQuat.cpp:417 '''
+        Simpsons Hit&Run\game\libs\radmath\radmath\quaternion.cpp:237
+            BuildFromMatrix() '''
+
+
+    if opposite_z:
+        # opposite the x, y vector columns
+        mat = [[ -x, -y, z ] for x, y, z in mat ]
 
     q = [ 0.0, 0.0, 0.0, 0.0 ]
     nxt = [ 1, 2, 0 ]
     tr = mat[0][0] + mat[1][1] + mat[2][2]
+
 
     if tr > 0.0:
         s = math.sqrt(tr + 1.0)
@@ -185,7 +227,11 @@ def Quat(mat) -> list:
         if (mat[2][2] > mat[i][i]): i = 2
         j = nxt[i]
         k = nxt[j]
-        s = math.sqrt( (mat[i][i] - (mat[j][j]+mat[k][k])) + 1.0 );      
+        s = math.sqrt((
+            mat[i][i]
+            - ( mat[j][j]
+                + mat[k][k] )) 
+            + 1.0 )
 
         q[i] = s * 0.5
         if s: s = 0.5 / s

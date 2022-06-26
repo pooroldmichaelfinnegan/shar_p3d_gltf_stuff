@@ -1,0 +1,3261 @@
+{
+  "P3D": [
+    {},
+    [
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_gens183Shape",
+            "Version": 1
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_gens183Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 6
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 10.989765,
+                                    "Length2": 1.364578,
+                                    "Length3": 0.058351
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -410.223633,
+                                          "Y": 0.611407,
+                                          "Z": 67.508179
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": 0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 10.989765,
+                                    "Length2": 1.364578,
+                                    "Length3": 0.058351
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.08667,
+                                          "Y": 0.611407,
+                                          "Z": 67.508179
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": 0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 5.0,
+                                    "Length2": 1.364578,
+                                    "Length3": 0.03612
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -405.170319,
+                                          "Y": 0.611407,
+                                          "Z": 56.485569
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 5.0,
+                                    "Length2": 1.364578,
+                                    "Length3": 0.03612
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -405.170319,
+                                          "Y": 0.611407,
+                                          "Z": 78.550926
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 4.075359,
+                                    "Length2": 2.539573,
+                                    "Length3": 1.364578
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -405.170319,
+                                          "Y": -0.771652,
+                                          "Z": 53.257523
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -0.365059,
+                                          "Z": -0.930984
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.930984,
+                                          "Z": -0.365059
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 4.075359,
+                                    "Length2": 2.52825,
+                                    "Length3": 1.364578
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -405.170319,
+                                          "Y": -0.626846,
+                                          "Z": 81.869431
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.335753,
+                                          "Z": -0.94195
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.94195,
+                                          "Z": 0.335753
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_218Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_218Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": -1,
+                        "NumSubVolume": 0
+                      },
+                      [
+                        {
+                          "OBBoxVolume": [
+                            {
+                              "Length1": 1.005992,
+                              "Length2": 4.42448,
+                              "Length3": 0.5
+                            },
+                            [
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -409.042999,
+                                    "Y": 2.091903,
+                                    "Z": 67.925362
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": 1.0,
+                                    "Y": 0.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": 0.0,
+                                    "Y": -0.0,
+                                    "Z": -1.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": 0.0,
+                                    "Y": 1.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_163Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_163Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 3
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 4.033715,
+                                    "Length2": 0.489219,
+                                    "Length3": 0.975994
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -354.625305,
+                                          "Y": 7.53146,
+                                          "Z": -79.857231
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -1.0,
+                                          "Z": 5e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": 0.0,
+                                          "Z": -1.1e-05
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.1e-05,
+                                          "Y": -5e-06,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.489219,
+                                    "Length2": 4.033715,
+                                    "Length3": 0.803036
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -354.625305,
+                                          "Y": 7.53146,
+                                          "Z": -91.733376
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": 1.0,
+                                          "Z": 5e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -5e-06,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 6.960476,
+                                    "Length2": 1.241569,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -354.636078,
+                                          "Y": 12.664634,
+                                          "Z": -85.856987
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 2e-06,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 2e-06,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_216Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_216Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 15
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 2.30332,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 8.745911,
+                                          "Z": 65.719093
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": 1.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 2.30332,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 8.745911,
+                                          "Z": 70.325729
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 2.30332,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 8.745911,
+                                          "Z": 65.719093
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 2.30332,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 8.745911,
+                                          "Z": 70.325729
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.442842,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 7.509565,
+                                          "Z": 65.196243
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -0.878981,
+                                          "Z": -0.476856
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": -1e-06,
+                                          "Z": 2e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -2e-06,
+                                          "Y": -0.476856,
+                                          "Z": 0.878981
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.442842,
+                                    "Length2": 1.451231,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.887909,
+                                          "Y": 7.825356,
+                                          "Z": 64.336235
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.878981,
+                                          "Z": 0.476856
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -3e-06,
+                                          "Y": -0.476856,
+                                          "Z": 0.878981
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": -1e-06,
+                                          "Z": 2e-06
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.610063,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 8.434085,
+                                          "Z": 66.000427
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.635256,
+                                          "Z": 0.772301
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.772301,
+                                          "Z": 0.635256
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 0.442842,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 7.509568,
+                                          "Z": 70.848572
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.878979,
+                                          "Z": -0.476861
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.476861,
+                                          "Z": -0.878979
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 0.610062,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 8.434084,
+                                          "Z": 70.044395
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.635255,
+                                          "Z": 0.772302
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.772302,
+                                          "Z": -0.635255
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.442842,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 7.509566,
+                                          "Z": 65.196243
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -0.878981,
+                                          "Z": -0.476856
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": -1e-06,
+                                          "Z": 2e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -2e-06,
+                                          "Y": -0.476856,
+                                          "Z": 0.878981
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.610063,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 8.434086,
+                                          "Z": 66.000427
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.635256,
+                                          "Z": 0.772301
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.772301,
+                                          "Z": 0.635256
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 0.442842,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 7.509566,
+                                          "Z": 70.848579
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.878981,
+                                          "Z": -0.476857
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.476857,
+                                          "Z": -0.878981
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 0.610062,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 8.434084,
+                                          "Z": 70.044395
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.635256,
+                                          "Z": 0.772302
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.772302,
+                                          "Z": -0.635256
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.193164,
+                                    "Length2": 1.460884,
+                                    "Length3": 0.323783
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -401.328949,
+                                          "Y": 6.558321,
+                                          "Z": 64.876656
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.193164,
+                                    "Length2": 1.460884,
+                                    "Length3": 0.323783
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -401.328949,
+                                          "Y": 6.558321,
+                                          "Z": 71.168167
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_217Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_217Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": -1,
+                        "NumSubVolume": 0
+                      },
+                      [
+                        {
+                          "OBBoxVolume": [
+                            {
+                              "Length1": 0.928033,
+                              "Length2": 4.42448,
+                              "Length3": 0.5
+                            },
+                            [
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -401.376984,
+                                    "Y": 2.091903,
+                                    "Z": 67.925362
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -1.0,
+                                    "Y": 0.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": -0.0,
+                                    "Z": 1.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": 1.0,
+                                    "Z": 0.0
+                                  },
+                                  []
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_120Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_120Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": -1,
+                        "NumSubVolume": 0
+                      },
+                      [
+                        {
+                          "OBBoxVolume": [
+                            {
+                              "Length1": 7.88342,
+                              "Length2": 17.444042,
+                              "Length3": 0.5
+                            },
+                            [
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -405.457367,
+                                    "Y": 15.919762,
+                                    "Z": 122.715309
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": 1.0,
+                                    "Z": 0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": 1.0,
+                                    "Y": 0.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": -0.0,
+                                    "Z": -1.0
+                                  },
+                                  []
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_79Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_79Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 4
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.215566,
+                                    "Length2": 0.405664,
+                                    "Length3": 1.27774
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -408.561371,
+                                          "Y": 8.859959,
+                                          "Z": 77.722923
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": 1.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.215566,
+                                    "Length2": 0.405664,
+                                    "Length3": 1.27774
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -401.779236,
+                                          "Y": 8.859959,
+                                          "Z": 77.722923
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": -2e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -2e-06,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.215566,
+                                    "Length2": 0.405664,
+                                    "Length3": 1.27774
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -401.779236,
+                                          "Y": 8.859959,
+                                          "Z": 57.418339
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.215566,
+                                    "Length2": 0.405664,
+                                    "Length3": 1.27774
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -408.561371,
+                                          "Y": 8.859959,
+                                          "Z": 57.418339
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_84Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_84Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 5
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 1.182011,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 8.063899,
+                                          "Z": 72.129051
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.182012,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.587402,
+                                          "Y": 8.063898,
+                                          "Z": 63.915771
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": 3e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 3e-06,
+                                          "Y": 0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.442842,
+                                    "Length2": 1.451231,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.681763,
+                                          "Y": 7.825349,
+                                          "Z": 64.336235
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 0.878981,
+                                          "Z": 0.476856
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 3e-06,
+                                          "Y": -0.476856,
+                                          "Z": 0.878981
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 2e-06,
+                                          "Z": -3e-06
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.182012,
+                                    "Length2": 0.405664,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 8.063898,
+                                          "Z": 63.915771
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": 1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": 3e-06
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 3e-06,
+                                          "Y": 0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 0.405664,
+                                    "Length2": 1.182011,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -400.793579,
+                                          "Y": 8.063899,
+                                          "Z": 72.129051
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -1.0,
+                                          "Y": -0.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -1.0,
+                                          "Z": 0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.0,
+                                          "Y": -0.0,
+                                          "Z": 1.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_215Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_215Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 2
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.22998,
+                                    "Length2": 1.460884,
+                                    "Length3": 0.307267
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.347961,
+                                          "Y": 6.605321,
+                                          "Z": 71.168159
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": 1.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.22998,
+                                    "Length2": 1.460884,
+                                    "Length3": 0.307267
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -409.347961,
+                                          "Y": 6.605321,
+                                          "Z": 64.876656
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 1.0,
+                                          "Y": 0.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": -0.0,
+                                          "Z": -1.0
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.0,
+                                          "Y": 1.0,
+                                          "Z": -0.0
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_119Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_119Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": -1,
+                        "NumSubVolume": 0
+                      },
+                      [
+                        {
+                          "OBBoxVolume": [
+                            {
+                              "Length1": 8.193165,
+                              "Length2": 17.988813,
+                              "Length3": 0.5
+                            },
+                            [
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -405.406525,
+                                    "Y": 16.657343,
+                                    "Z": 13.322087
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": 1.0,
+                                    "Z": 0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -1.0,
+                                    "Y": -0.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": -0.0,
+                                    "Z": 1.0
+                                  },
+                                  []
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_landmarks_158Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_landmarks_158Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": -1,
+                        "NumSubVolume": 0
+                      },
+                      [
+                        {
+                          "OBBoxVolume": [
+                            {
+                              "Length1": 1.894254,
+                              "Length2": 0.87361,
+                              "Length3": 0.706366
+                            },
+                            [
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -405.081879,
+                                    "Y": 3.706365,
+                                    "Z": 68.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -3.1e-05,
+                                    "Y": -0.0,
+                                    "Z": -1.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -1.0,
+                                    "Y": 1e-06,
+                                    "Z": 3.1e-05
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": 1e-06,
+                                    "Y": 1.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_gens70Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_gens70Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": -1,
+                        "NumSubVolume": 0
+                      },
+                      [
+                        {
+                          "OBBoxVolume": [
+                            {
+                              "Length1": 3.638032,
+                              "Length2": 1.764727,
+                              "Length3": 0.512008
+                            },
+                            [
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -405.170319,
+                                    "Y": 2.487992,
+                                    "Z": 68.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": 0.0,
+                                    "Y": 0.0,
+                                    "Z": -1.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -1.0,
+                                    "Y": -0.0,
+                                    "Z": -0.0
+                                  },
+                                  []
+                                ]
+                              },
+                              {
+                                "CollisionVector": [
+                                  {
+                                    "X": -0.0,
+                                    "Y": 1.0,
+                                    "Z": 0.0
+                                  },
+                                  []
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "StaticPhysDSG": [
+          {
+            "Name": "r4a_gens79Shape",
+            "Version": 0
+          },
+          [
+            {
+              "CollisionObject": [
+                {
+                  "Name": "r4a_gens79Shape",
+                  "Version": 1
+                },
+                [
+                  {
+                    "CollisionVolume": [
+                      {
+                        "ObjectReferenceIndex": 0,
+                        "OwnerIndex": 0,
+                        "NumSubVolume": 2
+                      },
+                      [
+                        {
+                          "BBoxVolume": [
+                            {
+                              "Nothing": 0
+                            },
+                            []
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.737926,
+                                    "Length2": 6.029529,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -395.63736,
+                                          "Y": 0.340511,
+                                          "Z": 153.593811
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.857248,
+                                          "Y": 0.089604,
+                                          "Z": -0.507048
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -0.111344,
+                                          "Y": 0.993701,
+                                          "Z": -0.012641
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.502721,
+                                          "Y": 0.067294,
+                                          "Z": 0.861825
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "CollisionVolume": [
+                            {
+                              "ObjectReferenceIndex": 0,
+                              "OwnerIndex": -1,
+                              "NumSubVolume": 0
+                            },
+                            [
+                              {
+                                "OBBoxVolume": [
+                                  {
+                                    "Length1": 1.710862,
+                                    "Length2": 6.411853,
+                                    "Length3": 0.5
+                                  },
+                                  [
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": -404.837646,
+                                          "Y": -0.288458,
+                                          "Z": 158.906494
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.866327,
+                                          "Y": -0.072718,
+                                          "Z": -0.494156
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.027485,
+                                          "Y": 0.994787,
+                                          "Z": -0.098204
+                                        },
+                                        []
+                                      ]
+                                    },
+                                    {
+                                      "CollisionVector": [
+                                        {
+                                          "X": 0.498721,
+                                          "Y": 0.071495,
+                                          "Z": 0.863809
+                                        },
+                                        []
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "CollisionObjectAttribute": [
+                      {
+                        "StaticAttribute": 1,
+                        "CanRoll": 0,
+                        "CanSlide": 0,
+                        "CanSpin": 0,
+                        "CanBounce": 0,
+                        "ExtraAttribute1": 0,
+                        "ExtraAttribute2": 0,
+                        "ExtraAttribute3": 0
+                      },
+                      []
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  ]
+}
