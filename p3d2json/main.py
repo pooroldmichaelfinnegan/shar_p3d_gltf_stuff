@@ -38,6 +38,11 @@ def _next(block):
 
     # chunk_raw_data = block[header:data_size].decode('utf-8', 'replace')
 
+    global uid
+    counter_item = chunk_id_list[chunk_id]
+    if counter_item not in uid: uid[counter_item] = 1
+    else: uid[counter_item] += 1
+
     temp_list = []
     if child_list:
         for v in child_list:
@@ -57,7 +62,8 @@ def _next(block):
         chunk_data = CHUNKS[chunk_id](block[header:data_size])
 
         # print(name)
-        # json.dumps(chunk_data)  # catch non json compatible types
+        # json.dumps(chunk_data)  # catch non-json compatible types
+
 
     return { name: [chunk_data, child_list] }
 
@@ -67,9 +73,7 @@ def _next(block):
     # if chunk_id not in chunk_id_list: name = chunk_id.decode('ascii', 'replace')
     # else: name = chunk_id_list[chunk_id].lower()
 
-    # global uid
-    # if name not in uid: uid[name] = 1
-    # else: uid[name] += 1
+
 
     # return { f'{name}_{uid[name]}': child_list }
 
@@ -90,8 +94,9 @@ def _next(block):
 if __name__ == '__main__':
     ret = _next(p3d_file)
     print(region)
-    with open(f'./l1r4a_col.json', 'wt') as dump:
-        json.dump(ret, dump, indent=2)
-    # for i in counter:
-    #     if i in chunk_id_list: print(counter[i], chunk_id_list[i])
-    #     else: print(counter[i], i)
+    # with open(f'./l1r4a_col.json', 'wt') as dump:
+    #     json.dump(ret, dump, indent=2)
+    with open('./dump.txt', 'wt') as dump:
+        for key, value in uid.items():
+            dump.write(f'{value:5} {key.lower()}\n')
+    

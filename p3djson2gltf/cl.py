@@ -78,6 +78,13 @@ class OBBox(Chunk):
 
 
 class Cylinder(Chunk):
+
+    # capsule relation
+    # if (mFlatEnd)
+    #     mSphereRadius = Sqrt(Sqr(mLength) + Sqr(mCylinderRadius));
+    # else
+    #     mSphereRadius = mLength + mCylinderRadius;
+
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
         self.radius = self.data['CylinderRadius']
@@ -115,26 +122,27 @@ class Sphere(Chunk):
             'scale': [ self.radius, self.radius, self.radius ]
         }
 
+
 class Intersect(Chunk):
     ''' IntersectDSG Chunk '''
     def __init__(self, chunk_body: list[dict, list]):
         Chunk.__init__(self, chunk_body)
 
-        self.indices3      = self.data['Indices']
-        self.positions3    = self.data['Positions']
-        self.facenormals3  = self.data['Normals']
-        self.indices       = [ i for j in self.indices3 for i in j ]
-        self.positions     = [ i for j in self.positions3 for i in j ]
-        self.facenormals   = [ i for j in self.facenormals3 for i in j ]
+        self.indices3     = self.data['Indices']
+        self.positions3   = self.data['Positions']
+        self.facenormals3 = self.data['Normals']
+        self.indices     = [ i for j in self.indices3 for i in j ]
+        self.positions   = [ i for j in self.positions3 for i in j ]
+        self.facenormals = [ i for j in self.facenormals3 for i in j ]
 
         self.indices_max,     self.indices_min     = calc_maxmin(*self.indices3)
         self.positions_max,   self.positions_min   = calc_maxmin(*self.positions3)
         self.facenormals_max, self.facenormals_min = calc_maxmin(*self.facenormals3)
 
         ## oppisite z co-ord
-        self.positions3_oz = [[ x, y, -z ] for x, y, z in self.positions3 ]
-        self.positions_oz = [ i for j in self.positions3 for i in j ]
-        self.positions_oz_max, self.positions_oz_min = calc_maxmin(*self.positions3_oz)
+        self.positions3_opposite_z = [[ x, y, -z ] for x, y, z in self.positions3 ]
+        self.positions_opposite_z = [ i for j in self.positions3_opposite_z for i in j ]
+        self.positions_opposite_z_max, self.positions_opposite_z_min = calc_maxmin(*self.positions3_opposite_z)
 
 
         ## temp hack
@@ -197,53 +205,6 @@ def calc_maxmin(*args: Vec3) -> list[float, float]:
     return _max, _min
 
 
-def Quat(mat, opposite_z: bool = False) -> list:
-    r''' MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
-        Simpsons Hit&Run\game\libs\radmath\radmath\quaternion.cpp:237
-            BuildFromMatrix() '''
 
 
-    if opposite_z:
-        # opposite the x, y vector columns
-        mat = [[ -x, -y, z ] for x, y, z in mat ]
-
-    q = [ 0.0, 0.0, 0.0, 0.0 ]
-    nxt = [ 1, 2, 0 ]
-    tr = mat[0][0] + mat[1][1] + mat[2][2]
-
-
-    if tr > 0.0:
-        s = math.sqrt(tr + 1.0)
-        w = -s * 0.5
-
-        if s: s = 0.5 / s
-        x = (mat[2][1] - mat[1][2]) * s
-        y = (mat[0][2] - mat[2][0]) * s
-        z = (mat[1][0] - mat[0][1]) * s
-
-    else:
-        i = 0
-        if (mat[1][1] > mat[0][0]): i = 1
-        if (mat[2][2] > mat[i][i]): i = 2
-        j = nxt[i]
-        k = nxt[j]
-        s = math.sqrt((
-            mat[i][i]
-            - ( mat[j][j]
-                + mat[k][k] )) 
-            + 1.0 )
-
-        q[i] = s * 0.5
-        if s: s = 0.5 / s
-
-        q[3] = (mat[k][j] - mat[j][k]) * s
-        q[j] = (mat[j][i] + mat[i][j]) * s
-        q[k] = (mat[k][i] + mat[i][k]) * s
-
-        w = -q[3]
-        x =  q[0]
-        y =  q[1]
-        z =  q[2]
-
-    return [ x, y, z, w ]
 
