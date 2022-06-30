@@ -14,7 +14,7 @@ region = 'z6'
 # with open('./p3ds/l4/sr1_.p3d', 'rb') as file:        # 
 
 # with open('./p3ds/L1_TERRA.p3d', 'rb') as file:
-with open(f'./p3ds/l1_regions/l1r4a.p3d', 'rb') as file:
+with open(f'./p3ds/SRR2_game_libs_sim_apps_coverage_bin_art/simcapsule.p3d', 'rb') as file:
 # with open(I, 'rb') as file:
     p3d_file = file.read()
 
@@ -38,6 +38,7 @@ def _next(block):
 
     # chunk_raw_data = block[header:data_size].decode('utf-8', 'replace')
 
+    ## chunk counter
     global uid
     counter_item = chunk_id_list[chunk_id]
     if counter_item not in uid: uid[counter_item] = 1
@@ -50,16 +51,20 @@ def _next(block):
     child_list = temp_list
 
     # name = ''
-
-    if chunk_id not in CHUNKS:
-        chunk_data = {}; return {}
+    chunk_id_decoded = chunk_id.decode('utf-8', 'replace')
+    if chunk_id not in chunk_id_list:
+        name = chunk_id_decoded
+        # chunk_data = {}; return {}
     # if chunk_id in chunk_id_list: name = chunk_id.decode('ascii', 'replace')
     # else: name = chunk_id_list[chunk_id]
+        chunk_data = CHUNKS[chunk_id](block[header:data_size])
 
     else:
-        name = CHUNKS[chunk_id].__name__
+        # name = CHUNKS[chunk_id].__name__
+        name = f'{chunk_id_decoded}    {chunk_id_list[chunk_id]}'
         # print(name, chunk_id, data_size, chunk_size)
-        chunk_data = CHUNKS[chunk_id](block[header:data_size])
+        # chunk_data = CHUNKS[chunk_id](block[header:data_size])
+        chunk_data = {}
 
         # print(name)
         # json.dumps(chunk_data)  # catch non-json compatible types
@@ -94,9 +99,9 @@ def _next(block):
 if __name__ == '__main__':
     ret = _next(p3d_file)
     print(region)
-    # with open(f'./l1r4a_col.json', 'wt') as dump:
-    #     json.dump(ret, dump, indent=2)
-    with open('./dump.txt', 'wt') as dump:
-        for key, value in uid.items():
-            dump.write(f'{value:5} {key.lower()}\n')
+    with open(f'./l1r4a_col.json', 'wt') as dump:
+        json.dump(ret, dump, indent=2)
+    # with open('./dump.txt', 'wt') as dump:
+    #     for key, value in uid.items():
+    #         dump.write(f'{value:5} {key.lower()}\n')
     

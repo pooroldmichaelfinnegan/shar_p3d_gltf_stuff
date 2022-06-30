@@ -36,23 +36,23 @@ def loopdict(dic):
     for key, value in dic.items():
         ## collision stuff
         match key:
-            case 'OBBoxVolume': nodes += [OBBox(value).gltf_node()]
-            # case 'CylinderVolume': nodes += [Cylinder(value).gltf_node()]
+            case 'OBBoxVolume':
+                nodes += [OBBox(value).gltf_node()]
+            # case 'CylinderVolume': nodes += [ Cylinder(value).gltf_node() ]
             # case 'SphereVolume': nodes += [ Sphere(value).gltf_node() ]
         
-        ## intersect stuff
-        # if key == 'IntersectDSG':
-        #     Int = Intersect(value)
+            # case 'IntersectDSG':
+            #     Int = Intersect(value)
 
-        #     for i, s in enumerate(types):
-        #         t = _terrain_types.index(s)
-        #         for j in Int.indices3[i]:
-        #             for p in Int.positions3_oz[j]:
-        #                 mxmn[t] = calc_maxmin(Int.positions3_oz[j], *mxmn[t])
-        #                 terrain_type_buffers[t] += pack('f', p)
-        #             # for p in Int.positions3[j]:
-        #             #     mxmn[t] = calc_maxmin(Int.positions3[j], *mxmn[t])
-        #             #     terrain_type_buffers[t] += pack('f', p)
+            #     for i, s in enumerate(types):
+            #         t = _terrain_types.index(s)
+            #         for j in Int.indices3[i]:
+            #             for p in Int.positions3_oz[j]:
+            #                 mxmn[t] = calc_maxmin(Int.positions3_oz[j], *mxmn[t])
+            #                 terrain_type_buffers[t] += pack('f', p)
+            #             # for p in Int.positions3[j]:
+            #             #     mxmn[t] = calc_maxmin(Int.positions3[j], *mxmn[t])
+            #             #     terrain_type_buffers[t] += pack('f', p)
 
         if isinstance(value, dict):
             loopdict(value)

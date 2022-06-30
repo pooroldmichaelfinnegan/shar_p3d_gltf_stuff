@@ -1,5 +1,4 @@
-
-import math
+from mat import *
 
 class Chunk:
     def __init__(self, chunk_body: list[dict, list]):
@@ -197,14 +196,6 @@ class Vec3:
         self.values = list(vec3.values())
         self.xyz = [self.values[0], self.values[1], self.values[2]]
         self.xy_opposite_z = [self.values[0], self.values[1], -self.values[2]]
-
-
-def calc_maxmin(*args: Vec3) -> list[float, float]:
-    _max = list(map(max, zip(*args)))
-    _min = list(map(min, zip(*args)))
-    return _max, _min
-
-
 
 
 

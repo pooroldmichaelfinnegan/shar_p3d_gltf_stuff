@@ -4,11 +4,11 @@ import numpy as np
 
 class Matrix3x3:
     def __init__(self, *components):
-        self.r0c0, self.r0c1, self.r0c2 = components[0:3]
-        self.r1c0, self.r1c1, self.r1c2 = components[3:6]
-        self.r2c0, self.r2c1, self.r2c2 = components[6:9]
+        self.m00, self.m01, self.m02 = components[0:3]
+        self.m10, self.m11, self.m12 = components[3:6]
+        self.m20, self.m21, self.m22 = components[6:9]
     def trace(self):
-        return [ self.r0c0, self.r1c1, self.r2c2 ]
+        return [ self.m00, self.m11, self.m22 ]
 
 
 def magnitude(self, vector: list):
@@ -25,11 +25,11 @@ def quat2rm(self, quat):
     dangle = np.degrees(angle)
     return 
 
+
 def SHAR_Rotation_Matrix_to_Quaternion(mat, opposite_z: bool = False) -> list:
     r''' MakeQuat: Convert 3x3 rotation matrix to unit quaternion 
         Simpsons Hit&Run\game\libs\radmath\radmath\quaternion.cpp:237
             BuildFromMatrix() '''
-
 
     if opposite_z:
         # opposite the x, y vector columns
@@ -41,7 +41,7 @@ def SHAR_Rotation_Matrix_to_Quaternion(mat, opposite_z: bool = False) -> list:
 
 
     if tr > 0.0:
-        s = math.sqrt(tr + 1.0)
+        s = np.sqrt(tr + 1.0)
         w = -s * 0.5
 
         if s: s = 0.5 / s
@@ -55,7 +55,7 @@ def SHAR_Rotation_Matrix_to_Quaternion(mat, opposite_z: bool = False) -> list:
         if (mat[2][2] > mat[i][i]): i = 2
         j = nxt[i]
         k = nxt[j]
-        s = math.sqrt((
+        s = np.sqrt((
             mat[i][i]
             - ( mat[j][j]
                 + mat[k][k] )) 
@@ -74,7 +74,6 @@ def SHAR_Rotation_Matrix_to_Quaternion(mat, opposite_z: bool = False) -> list:
         z =  q[2]
 
     return [ x, y, z, w ]
-
 
 
 def calc_maxmin(*array_of_vec):

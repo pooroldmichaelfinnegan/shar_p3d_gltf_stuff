@@ -1,9 +1,9 @@
-_trigger_volume_types = [
+trigger_volume_types = [
     'Sphere',
     'Rectangle'
 ]
 
-_terrain_types = [
+terrain_types = [
     'TT_Road',	    # Default road terrain. Also used for sidewalk. This is default. If not set, it's this.
 	'TT_Grass',	    # Grass type terrain most everything else which isn't road or sidewalk.
 	'TT_Sand',	    # Sand type terrain.
@@ -14,7 +14,7 @@ _terrain_types = [
     'TT_Dirt',      # Dirt type terrain.
 ]
 
-_locator_types = [
+locator_types = [
     'Event',
     'Script',
     'Generic',
@@ -33,7 +33,7 @@ _locator_types = [
     'Spawn Point'
 ]
 
-_event_types = [
+event_types = [
     'Flag',
     'Camera Cut',
     'Check Point',
