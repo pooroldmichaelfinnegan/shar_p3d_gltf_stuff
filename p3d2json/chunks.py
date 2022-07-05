@@ -26,11 +26,11 @@ def Wall(blob):
 def IntersectDSG(blob):
     num_indices, = struct.unpack('<I', blob[:0x4])
     # indices = struct.unpack(f'<{num_indices}I', blob[0x4:0x4+num_indices*0x4])
-    indices = [struct.unpack('<3I',blob[i:i+0xC]) for i in range(0x4,0x4+num_indices*0x4,0xC)]
+    indices = [struct.unpack('3I',blob[i:i+0xC]) for i in range(0x4,0x4+num_indices*0x4,0xC)]
     num_positions, = struct.unpack('<I', blob[0x4+num_indices*0x4:0x4+num_indices*0x4+0x4])
     # positions = struct.unpack(f'<{num_positions*3}f', blob[0x4+num_indices*0x4+0x4:0x4+num_indices*0x4+0x4+num_positions*0xC])
     positions = [struct.unpack(f'3f', blob[i:i+0xC]) for i in range(0x4+num_indices*0x4+0x4,0x4+num_indices*0x4+0x4+num_positions*0xC,0xC)]
-    num_normals, = struct.unpack('<I', blob[0x4+num_indices*0x4+0x4+num_positions*0xC:0x4+num_indices*0x4+0x4+num_positions*0xC+0x4])
+    num_normals, = struct.unpack('I', blob[0x4+num_indices*0x4+0x4+num_positions*0xC:0x4+num_indices*0x4+0x4+num_positions*0xC+0x4])
     # normals = struct.unpack(f'{num_normals*3}f', blob[0x4+num_indices*0x4+0x4+num_positions*0xC+0x4:0x4+num_indices*0x4+0x4+num_positions*0xC+0x4+num_normals*0xC])
     normals = [struct.unpack(f'3f', blob[i:i+0xC]) for i in range(0x4+num_indices*0x4+0x4+num_positions*0xC+0x4,0x4+num_indices*0x4+0x4+num_positions*0xC+0x4+num_normals*0xC,0xC)]
     return { 'Indices': indices, 'Positions': positions, 'Normals': normals }
@@ -215,60 +215,54 @@ def RenderStatus(blob):
 
 # MESH
 def Mesh(blob):
-    ''' subchunks
-            PrimGroup
-            BBox
-            BSphere
-            RenderStatus
-            ExpressionOffsets '''
     name_size = blob[0x0]
     name = struct.unpack(f'{name_size}s', blob[0x1:0x1+name_size])[0].decode('ascii').strip('\x00')
     version, = struct.unpack('I', blob[0x1+name_size:0x1+name_size+0x4])
     num_prime_groups, = struct.unpack('I', blob[0x1+name_size+0x4:0x1+name_size+0x4+0x4])
     return { 'Name': name, 'Version': version, 'NumPrimGroups': num_prime_groups }
-def PrimeGroup(blob):
-    version = struct.unpack(f'<I', blob[:0x4])
+def PrimeGroupChunk(blob):
+    version, = struct.unpack(f'I', blob[:0x4])
     string_size = blob[0x0]
-    shader = struct.unpack(f'{string_size}s', blob[0x5:0x5+string_size])[0].decode('ascii').strip('\x00')
-    primitive_type = struct.unpack(f'<I', blob[0x5+string_size:0x5+string_size+0x4])
-    vertex_type = struct.unpack(f'<I', blob[0x5+string_size+0x4:0x5+string_size+0x8])
-    primitive_type = struct.unpack(f'<I', blob[0x5+string_size+0x8:0x5+string_size+0xC])
-    num_vertices = struct.unpack(f'<I', blob[0x5+string_size+0xC:0x5+string_size+0x10])
-    num_indices = struct.unpack(f'<I', blob[0x5+string_size+0x10:0x5+string_size+0x14])
-    num_matrices = struct.unpack(f'<I', blob[0x5+string_size+0x14:0x5+string_size+0x18])
+    shader = struct.unpack(f'{string_size}s', blob[0x5:0x5+string_size])[0].decode('utf-8').strip('\x00')
+    primitive_type, = struct.unpack(f'<I', blob[0x5+string_size:0x5+string_size+0x4])
+    vertex_type, = struct.unpack(f'<I', blob[0x5+string_size+0x4:0x5+string_size+0x8])
+    primitive_type, = struct.unpack(f'<I', blob[0x5+string_size+0x8:0x5+string_size+0xC])
+    num_vertices, = struct.unpack(f'<I', blob[0x5+string_size+0xC:0x5+string_size+0x10])
+    num_indices, = struct.unpack(f'<I', blob[0x5+string_size+0x10:0x5+string_size+0x14])
+    num_matrices, = struct.unpack(f'<I', blob[0x5+string_size+0x14:0x5+string_size+0x18])
     return {'Version': version, 'Shader': shader, 'PrimitiveType': primitive_type, 'VertexType': vertex_type, 'NumVertices': num_vertices, 'NumIndices': num_indices, 'NumMatrices': num_matrices }
 def VertexShader(blob):
     vertex_shader_name_size = blob[0x0]
     vertex_shader_name = struct.unpack(f'{vertex_shader_name_size}s', blob[:vertex_shader_name_size])[0].decode('ascii').strip('\x00')
     return { 'VertexShaderName': vertex_shader_name }
 def PositionList(blob):
-    num_positions = struct.unpack(f'<I', blob[:0x4])
-    positions = ...
+    num_positions, = struct.unpack(f'I', blob[:0x4])
+    positions = [ list(struct.unpack('3f', blob[i:i+0xC])) for i in range(0x4,0x4+num_positions*0xC,0xC) ]
     return { 'NumPositions': num_positions, 'Positions': positions }
 def NormalList(blob):
-    num_normals = struct.unpack(f'<I', blob[:0x4])
-    normals = ...
+    num_normals, = struct.unpack(f'<I', blob[:0x4])
+    normals = [ struct.unpack('f', i) for i in blob[0x4:num_normals*0x4]]
     return { 'NumNormals': num_normals, 'Normals': normals }
 def PackedNormalList(blob):
     num_normals = blob[0x0]
     normals = ...
     return { 'NumNormals': num_normals, 'Normals': normals }
 def ColourList(blob):
-    num_colors = struct.unpack(f'<I', blob[:0x4])
+    num_colors, = struct.unpack(f'I', blob[:0x4])
     colours = ...
     return { 'NumColours': num_colors, 'Colours': colours }
 def MultiColourList(blob):
-    num_colours = struct.unpack(f'<I', blob[:0x4])
-    channel = struct.unpack(f'<I', blob[0x4:0x8])
+    num_colours, = struct.unpack(f'<I', blob[:0x4])
+    channel, = struct.unpack(f'I', blob[0x4:0x8])
     colours = ...
     return { 'NumColours': num_colours, 'Channel': channel, 'Colours': colours }
 def StripList(blob):
-    num_strips = struct.unpack(f'<I', blob[:0x4])
+    num_strips, = struct.unpack(f'<I', blob[:0x4])
     strips = ...
     return { 'NumStrips': num_strips, 'Strips': strips }
 def IndexList(blob):
-    num_indices = struct.unpack(f'<I', blob[:0x4])
-    indices = ...
+    num_indices, = struct.unpack(f'I', blob[:0x4])
+    indices = [struct.unpack('I',blob[i:i+0x4])[0] for i in range(0x4,0x4+num_indices*0x4,0x4)]
     return { 'NumIndices': num_indices, 'Indices': indices }
 def MatrixList(blob):
     num_matrices = struct.unpack(f'<I', blob[:0x4])
@@ -340,66 +334,66 @@ CHUNKS = {
     b'\x50\x33\x44\xFF': P3D,
 
     # b'\x07\x00\xF0\x03': FenceDSG,
-    # b'\x00\x00\x00\x03': Wall,
+    #     b'\x00\x00\x00\x03': Wall,
 
     # b'\x03\x00\xF0\x03': IntersectDSG,
-        # b'\x03\x00\x01\x00': BBox,
-        # b'\x04\x00\x01\x00': BSphere,
-        # b'\x0E\x00\x00\x03': TerrainType,
+    #     b'\x03\x00\x01\x00': BBox,
+    #     b'\x04\x00\x01\x00': BSphere,
+    #     b'\x0E\x00\x00\x03': TerrainType,
 
     # b'\x04\x00\xF0\x03': TreeDSG,
-        # b'\x05\x00\xF0\x03': ContiguousBinNode,
-        # b'\x06\x00\xF0\x03': SpatialNode,
+    #     b'\x05\x00\xF0\x03': ContiguousBinNode,
+    #     b'\x06\x00\xF0\x03': SpatialNode,
 
     # b'\x05\x00\x00\x03': WBLocator,
-        # b'\x06\x00\x00\x03': WBTriggerVolume,
+    #     b'\x06\x00\x00\x03': WBTriggerVolume,
 
     # b'\x00\x90\x01\x00': Texture,
-        # b'\x01\x90\x01\x00': Image,
-        # b'\x02\x90\x01\x00': ImageData,
-        # b'\x03\x90\x01\x00': ImageFileName,
-        # b'\x04\x90\x01\x00': VolumeImage,
-        # b'\x05\x90\x01\x00': Sprite,
+    #     b'\x01\x90\x01\x00': Image,
+    #     b'\x02\x90\x01\x00': ImageData,
+    #     b'\x03\x90\x01\x00': ImageFileName,
+    #     b'\x04\x90\x01\x00': VolumeImage,
+    #     b'\x05\x90\x01\x00': Sprite,
 
-    b'\x01\x00\xF0\x03': StaticPhysDSG,
-        b'\x00\x00\x01\x07': CollisionObject,
-        b'\x23\x00\x01\x07': CollisionObjectAttribute,
-        b'\x21\x00\x01\x07': CollisionVolumeOwner,
-        b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
-        b'\x20\x00\x01\x07': SelfCollision,
-        b'\x01\x00\x01\x07': CollisionVolume,
-        b'\x06\x00\x01\x07': BBoxVolume,
-        b'\x02\x00\x01\x07': SphereVolume,
-        b'\x03\x00\x01\x07': CylinderVolume,
-        b'\x04\x00\x01\x07': OBBoxVolume,
-        b'\x05\x00\x01\x07': WallVolume,
-        b'\x07\x00\x01\x07': CollisionVector,
+    # b'\x01\x00\xF0\x03': StaticPhysDSG,
+    #     b'\x00\x00\x01\x07': CollisionObject,
+    #     b'\x23\x00\x01\x07': CollisionObjectAttribute,
+    #     b'\x21\x00\x01\x07': CollisionVolumeOwner,
+    #     b'\x22\x00\x01\x07': CollisionVolumeOwnerName,
+    #     b'\x20\x00\x01\x07': SelfCollision,
+    #     b'\x01\x00\x01\x07': CollisionVolume,
+    #     b'\x06\x00\x01\x07': BBoxVolume,
+    #     b'\x02\x00\x01\x07': SphereVolume,
+    #     b'\x03\x00\x01\x07': CylinderVolume,
+    #     b'\x04\x00\x01\x07': OBBoxVolume,
+    #     b'\x05\x00\x01\x07': WallVolume,
+    #     b'\x07\x00\x01\x07': CollisionVector,
 
     # b'\x0B\x00\xF0\x03': WorldSphereDSG,
 
     ## mesh
-    # b'\x00\x00\x01\x00': Mesh,
-    # b'\x02\x00\x01\x00': PrimeGroupChunk,
-        # b'\x\x\x\x': VertexShader,
-        # b'\x\x\x\x': PositionList,
-        # b'\x\x\x\x': NormalList,
-        # b'\x\x\x\x': PackedNormalList,
-        # b'\x\x\x\x': ColourList,
-        # b'\x\x\x\x': MultiColourList,
-        # b'\x\x\x\x': StripList,
-        # b'\x\x\x\x': IndexList,
-        # b'\x\x\x\x': MatrixList,
-        # b'\x\x\x\x': WeightList,
-        # b'\x\x\x\x': MatrixPalette,
-        # b'\x\x\x\x': InstanceInfo,
-        # b'\x\x\x\x': PrimGroupMemoryImageVertex,
-        # b'\x\x\x\x': PrimGroupMemoryImageIndex,
-        # b'\x\x\x\x': PrimGroupMemoryImageVertexDescription,
-        # b'\x\x\x\x': TangentList,
-        # b'\x\x\x\x': BinormalList,
-        # b'\x\x\x\x': OffsetList,
-    # b'\x\x\x\x': BBoxChunk,
-    # b'\x\x\x\x': BSphereChunk,
+    b'\x00\x00\x01\x00': Mesh,
+        b'\x02\x00\x01\x00': PrimeGroupChunk,
+            # b'\x\x\x\x': VertexShader,
+            b'\x05\x00\x01\x00': PositionList,
+            # b'\x\x\x\x': NormalList,
+            # b'\x\x\x\x': PackedNormalList,
+            # b'\x\x\x\x': ColourList,
+            # b'\x\x\x\x': MultiColourList,
+            # b'\x\x\x\x': StripList,
+            b'\x0A\x00\x01\x00': IndexList,
+            # b'\x\x\x\x': MatrixList,
+            # b'\x\x\x\x': WeightList,
+            # b'\x\x\x\x': MatrixPalette,
+            # b'\x\x\x\x': InstanceInfo,
+            # b'\x\x\x\x': PrimGroupMemoryImageVertex,
+            # b'\x\x\x\x': PrimGroupMemoryImageIndex,
+            # b'\x\x\x\x': PrimGroupMemoryImageVertexDescription,
+            # b'\x\x\x\x': TangentList,
+            # b'\x\x\x\x': BinormalList,
+            # b'\x\x\x\x': OffsetList,
+        # b'\x\x\x\x': BBoxChunk,
+        # b'\x\x\x\x': BSphereChunk,
     # b'\x\x\x\x': RenderStatusChunk,
     # b'\x\x\x\x': ExpressionOffsetsChunk,
 }

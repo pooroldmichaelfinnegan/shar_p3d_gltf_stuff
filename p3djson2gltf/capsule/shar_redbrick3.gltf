@@ -1,0 +1,254 @@
+{
+    "asset" : {
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "shar_redbrick3_scene",
+            "nodes" : [
+                0, 1, 2, 3, 4
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "shar_redbrick3_nodes",
+            "translation": [ 0, 0, 0 ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "shar_redbrick3_nodes",
+            "translation": [ 2, 0, 0 ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "shar_redbrick3_nodes",
+            "translation": [ 4, 0, 0 ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "shar_redbrick3_nodes",
+            "translation": [ 6, 0, 0 ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "shar_redbrick3_nodes",
+            "translation": [ 8, 0, 0 ]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "shar_redbrick3_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 5
+                    },
+                    "indices": 0,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "name" : "shar_redbrick3_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 6
+                    },
+                    "indices": 1,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "name" : "shar_redbrick3_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 7
+                    },
+                    "indices": 2,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "name" : "shar_redbrick3_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8
+                    },
+                    "indices": 3,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "name" : "shar_redbrick3_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 9
+                    },
+                    "indices": 4,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "byteOffset": 0,
+            "componentType" : 5125,
+            "count" : 600,
+            "max" : [ 85 ],
+            "min" : [ 0 ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 0,
+            "byteOffset": 960,
+            "componentType" : 5125,
+            "count" : 600,
+            "max" : [ 85 ],
+            "min" : [ 0 ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 0,
+            "byteOffset": 1920,
+            "componentType" : 5125,
+            "count" : 240,
+            "max" : [ 85 ],
+            "min" : [ 0 ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 0,
+            "byteOffset": 2880,
+            "componentType" : 5125,
+            "count" : 36,
+            "max" : [ 23 ],
+            "min" : [ 0 ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 0,
+            "byteOffset": 3024,
+            "componentType" : 5125,
+            "count" : 240,
+            "max" : [ 85 ],
+            "min" : [ 0 ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 1,
+            "byteOffset": 0,
+            "componentType" : 5126,
+            "count" : 86,
+            "type" : "VEC3",
+            "max" : [
+                0.5,
+                0.5,
+                0.5000001192092896
+            ],
+            "min" : [
+                -0.5,
+                -0.5000001192092896,
+                -0.5000000596046448
+            ]
+        },
+        {
+            "bufferView" : 1,
+            "byteOffset": 1032,
+            "componentType" : 5126,
+            "count" : 86,
+            "type" : "VEC3",
+            "max" : [
+                0.5,
+                0.5,
+                0.5000001192092896
+            ],
+            "min" : [
+                -0.5,
+                -0.5000001192092896,
+                -0.5000000596046448
+            ]
+        },
+        {
+            "bufferView" : 1,
+            "byteOffset": 2064,
+            "componentType" : 5126,
+            "count" : 86,
+            "type" : "VEC3",
+            "max" : [
+                0.5,
+                0.5,
+                0.5000001788139343
+            ],
+            "min" : [
+                -0.5,
+                -0.5000001192092896,
+                -0.5
+            ]
+        },
+        {
+            "bufferView" : 1,
+            "byteOffset": 3096,
+            "componentType": 5126,
+            "count" : 24,
+            "type" : "VEC3",
+            "max" : [
+                1,
+                0.5,
+                2
+            ],
+            "min" : [
+                -1,
+                -0.5,
+                -2
+            ]
+        },
+        {
+            "bufferView" : 1,
+            "byteOffset": 3112,
+            "componentType" : 5126,
+            "count" : 86,
+            "type" : "VEC3",
+            "max" : [
+                0.5,
+                2,
+                1
+            ],
+            "min" : [
+                -0.5000001192092896,
+                -2,
+                -1
+            ]
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 3984,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4416,
+            "byteOffset" : 3984,
+            "byteStride": 12
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 8400,
+            "uri" : "./shar_redbrick3.bin"
+        }
+    ]
+}

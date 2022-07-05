@@ -5,7 +5,7 @@
     "scene" : 0,
     "scenes" : [
         {
-            "name" : "Scene",
+            "name" : "shar_capsule_scene",
             "nodes" : [
                 0
             ]
@@ -14,18 +14,18 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Cylinder"
+            "name" : "shar_capsule_nodes"
         }
     ],
     "meshes" : [
         {
-            "name" : "Cylinder.001",
+            "name" : "shar_capsule_mesh",
             "primitives" : [
                 {
                     "attributes" : {
-                        "POSITION" : 0
+                        "POSITION" : 1
                     },
-                    "indices": 1,
+                    "indices": 0,
                     "mode": 4
                 }
             ]
@@ -34,6 +34,14 @@
     "accessors" : [
         {
             "bufferView" : 0,
+            "componentType" : 5125,
+            "count" : 2400,
+            "max" : [ 401 ],
+            "min" : [ 0 ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 1,
             "componentType" : 5126,
             "count" : 402,
             "type" : "VEC3",
@@ -47,36 +55,24 @@
                 -0.49999985098838806,
                 -0.19999997317790985
             ]
-        },
-        {
-            "bufferView" : 1,
-            "componentType" : 5125,
-            "count" : 2400,
-            "max" : [ 401 ],
-            "min" : [ 0 ],
-            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 4824,
+            "byteLength" : 9600,
             "byteOffset" : 0
         },
         {
-            "buffer" : 1,
-            "byteLength" : 9600,
-            "byteOffset" : 0
+            "buffer" : 0,
+            "byteLength" : 4824,
+            "byteOffset" : 9600
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 4824,
-            "uri" : "./capsule_postions_list.bin"
-        },
-        {
-            "byteLength" : 9600,
-            "uri" : "./capsule_indices.bin"
+            "byteLength" : 14424,
+            "uri" : "./shar_capsule.bin"
         }
     ]
 }
