@@ -2,7 +2,7 @@ from struct import pack
 from time import sleep
 import json
 
-from cl import calc_maxmin, Intersect, StaticPhysDSG, OBBox, Sphere, Cylinder
+from chunk_groups.chunk_base import calc_maxmin, Intersect, StaticPhysDSG, OBBox, Sphere, Cylinder
 
 # with open('./flandersHouse.json', 'rt') as p3djson:
 # with open('./common_gens16Shape.json', 'rt') as p3djson:
@@ -13,19 +13,19 @@ with open('./collision_stuff/obbox_workings/obbox_/l1r4b_col.json', 'rt') as p3d
     p3djson = json.loads(p3djson_file.read())
 
 
-class myfloat(float):
-    ''' hacky placeholder None type that can make comparisons against '''
-    def __gt__(self, value: bool): return False
-    def __ge__(self, value: bool): return False
-    def __lt__(self, value: bool): return False
-    def __le__(self, value: bool): return False
+class egg(float):
+    ''' hacky placeholder number type to make comparisons against '''
+    def __gt__(self): return False
+    def __ge__(self): return False
+    def __lt__(self): return False
+    def __le__(self): return False
 
 
 _terrain_types = [ 'TT_Road','TT_Grass','TT_Sand','TT_Gravel','TT_Water','TT_Wood','TT_Metal','TT_Dirt','None' ]
 
-## 9 for not-existing default to None, 8 for default as TT_Road
+## 9 for non-existing default to None, 8 for default as TT_Road
 terrain_type_buffers = [ b'' for i in range(9) ]
-mfvec3 = [ myfloat(0), myfloat(0), myfloat(0) ]
+mfvec3 = [ egg(0), egg(0), egg(0) ]
 mxmn = [[ mfvec3.copy(), mfvec3.copy() ] for i in range(9) ]
 
 nodes = []
@@ -36,8 +36,9 @@ def loopdict(dic):
     for key, value in dic.items():
         ## collision stuff
         match key:
-            case 'OBBoxVolume':
-                nodes += [OBBox(value).gltf_node()]
+            case 'Mesh': pass
+            # case 'OBBoxVolume':
+            #     nodes += [OBBox(value).gltf_node()]
             # case 'CylinderVolume': nodes += [ Cylinder(value).gltf_node() ]
             # case 'SphereVolume': nodes += [ Sphere(value).gltf_node() ]
         

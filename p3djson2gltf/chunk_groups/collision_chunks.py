@@ -56,15 +56,15 @@ class OBBox(Chunk):
         self.o0 = Vec3Chunk(self.child[1]['CollisionVector']).xyz  # X
         self.o1 = Vec3Chunk(self.child[2]['CollisionVector']).xyz  # Y
         self.o2 = Vec3Chunk(self.child[3]['CollisionVector']).xyz  # Z
-        self.rotation_matrix = [
-            self.o0,
-            self.o1,
-            self.o2
-        ]
-
+        self.rotation_matrix = Matrix3(
+            *self.o0,
+            *self.o1,
+            *self.o2
+        )
+    
 
     # part of gltf exporter 
-    def gltf_node(self, mesh_index: int = 0) -> dict:
+    def gltf_node_node_transforms(self, mesh_index: int = 0) -> dict:
         return {
             'mesh': mesh_index,
             'translation': self.position_opposite_z,
