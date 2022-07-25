@@ -1,6 +1,6 @@
 import numpy as np
 
-from chunk_base import Chunk
+from chunk_groups.chunk_base import Chunk
 
 class Vec3Chunk(Chunk):
     def __init__(self, chunk_body: list[dict, list]):

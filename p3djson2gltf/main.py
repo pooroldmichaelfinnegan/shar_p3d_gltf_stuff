@@ -2,14 +2,16 @@ from struct import pack
 from time import sleep
 import json
 
-from chunk_groups.chunk_base import calc_maxmin, Intersect, StaticPhysDSG, OBBox, Sphere, Cylinder
+# from chunk_groups.chunk_base import calc_maxmin, Intersect, StaticPhysDSG, OBBox, Sphere, Cylinder
+from chunk_groups.mesh_chunks import MeshChunk, PrimGroupChunk, PositionList, IndexList
+from chunk_groups.gltf_stuff import bin_file
 
 # with open('./flandersHouse.json', 'rt') as p3djson:
 # with open('./common_gens16Shape.json', 'rt') as p3djson:
 # with open('./l1z2_col_chunks.json', 'rt') as p3djson:
 # with open('./intersect_add_normals/l1_all_intersects_updated.json', 'rt') as p3djson:
 # with open('./l1_regions__intersect_jsons__sorted_by_terrain/l1_all_intersects_2.json', 'rt') as p3djson:
-with open('./collision_stuff/obbox_workings/obbox_/l1r4b_col.json', 'rt') as p3djson_file:
+with open('./mesh/l1z1_mesh_pos_ind.json', 'rt') as p3djson_file:
     p3djson = json.loads(p3djson_file.read())
 
 
@@ -30,18 +32,44 @@ mxmn = [[ mfvec3.copy(), mfvec3.copy() ] for i in range(9) ]
 
 nodes = []
 
+## temp
+ind_buffer, pos_buffer = b'', b''
+
+binn = bin_file()
+plen =0
+
 def loopdict(dic):
-    global terrain_type_buffers, nodes
-    
+    global terrain_type_buffers, nodes, ind_buffer, pos_buffer, plen
+
     for key, value in dic.items():
-        ## collision stuff
+
         match key:
-            case 'Mesh': pass
+            # case 'MeshChunk':
+            # case 'PrimGroupChunk':
+            
+
+            case 'IndexList':
+                i = IndexList(value)
+                temp = []
+                for j in i.indices:
+                    print(len(pos_buffer)//12, plen, j)
+                    temp += [ j + plen ]
+                    # plen = len(pos_buffer)//12
+                ind_buffer += i.to_bytes(temp)
+
+            case 'PositionList':
+                p = PositionList(value)
+                plen = len(pos_buffer)//12
+                pos_buffer += p.to_bytes(p.positions_opposite_z)
+
+
             # case 'OBBoxVolume':
             #     nodes += [OBBox(value).gltf_node()]
+
             # case 'CylinderVolume': nodes += [ Cylinder(value).gltf_node() ]
+
             # case 'SphereVolume': nodes += [ Sphere(value).gltf_node() ]
-        
+
             # case 'IntersectDSG':
             #     Int = Intersect(value)
 
@@ -97,15 +125,20 @@ _gltf['scenes'][0]['nodes'] = nodes_index_list
 _gltf['nodes'] = nodes
 
 
+print(len(pos_buffer))
+print(len(ind_buffer))
+
 outname = 'dump'
 name_cache = []
 if outname == '' or outname != 'dump' and outname in name_cache:
     raise 'RENAME'
 else:
     name_cache += [ outname ]
-    with open(f'./collision_stuff/obbox_workings/obbox_/l1r4b_obbox_col.gltf', 'wt') as out:
+    with open(f'./mesh/a.bin', 'wb') as out:
         # out.write(json.dumps(cube_gltf, out, indent=2))
-        json.dump(_gltf, out, indent=2)
+        # print(binn.i)
+        out.write(ind_buffer + pos_buffer)
+        # json.dump(binn.i + binn.p, out, indent=2)
 
 
 ## dump nodes list to txt file for copy pasting

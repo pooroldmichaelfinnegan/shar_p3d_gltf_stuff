@@ -61,7 +61,7 @@ class OBBox(Chunk):
             *self.o1,
             *self.o2
         )
-    
+
 
     # part of gltf exporter 
     def gltf_node_node_transforms(self, mesh_index: int = 0) -> dict:

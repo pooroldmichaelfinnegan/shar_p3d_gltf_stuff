@@ -1,7 +1,7 @@
 from pickletools import int4
 from re import S
 import numpy as np
-from mat import *
+# from mat import *
 
 class Chunk:
     def __init__(self, chunk_body: list[dict, list]):
@@ -32,10 +32,10 @@ class glTF:
                 'attributes': {
                     'position': position
                 },
-            'mode': mode
+                'mode': mode
             }]
         }
-        if indices is not None: mesh.update({ 'indices': indices })
+        if indices is not None: mesh['primitives'].update({ 'indices': indices })
         return mesh
 
     def accessor(
